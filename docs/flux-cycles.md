@@ -2,148 +2,151 @@
 
 ## Landing Page Cycles
 
-### Currency Conversion API Request Actions
-* `fetchFromCurrency` & `fetchToCurrency`
+### Currency Conversion
+#### Currency Conversion API Request Actions
+<!-- * `fetchFromCurrency` & `fetchToCurrency`
   0. invoked from `Conversion` `didMount`/`onClick` event-handlers
   0. `GET /api...FromCurrency` and `GET /api/...ToCurrency` are called
-  0. `receiveFromCurrency` & `receiveToCurrency` are set at the callbacks
+  0. `receiveFromCurrency` & `receiveToCurrency` are set at the callbacks -->
 
 * `fetchFromAmount` & `fetchToAmount`
   0. invoked from `Conversion` `didMount`/`onClick` event-handlers
   0. `GET /api...FromAmount` and `GET /api...ToAmount` are called
   0. `receiveFromAmount` & `receiveToAmount` are set at the callbacks
 
-### Graph API Request Actions
-* Essentially a forex API call is made for the information in the graph
-
-### Graph API Response Actions
-* The graph is rendered
-
-### Currency Conversion API Response Actions
-* `receiveFromCurrency` & `receiveToCurrency`
+#### Currency Conversion API Response Actions
+<!-- * `receiveFromCurrency` & `receiveToCurrency`
   0. invoked as API callbacks
-  0. `Conversion` store updates `_fromCurrency` and `_toCurrency` and emits change
+  0. `Conversion` store updates `_fromCurrency` and `_toCurrency` and emits change -->
 
 * `receiveFromAmount` & `receiveToAmount`
   0. invoked as API callbacks
   0. `Conversion` store updates `_fromAmount` and `_toAmount` and emits change
 
-### Store Listeners
+### Foreign Exchange 30-Day History Graph
+#### Graph API Request Actions
+* Essentially a forex API call is made for the information in the graph.
+* I plan to use fixer.io. For example, we can get the latest USD Forex rates with
+  0. http://api.fixer.io/latest?base=USD
+  0. **NB** I'd like some clarity on where this fits into the Flux loop.
+  0. I don't think that I'd want to store this information in my database.
+
+#### Graph API Response Actions
+* The graph is rendered
+
+#### Store Listeners
 * `Currency` component listens to `Conversion` store
 * `Graph` component listens to `Conversion` store as well
 
+### Customer Review Carousel
+#### ReviewIndex API Request Actions
+* `fetchAllReviews`
+  0. invoked from `ReviewIndex` `didMount`
+  0. `GET /api/reviews` is called
+  0. `receiveAllReviews` is set as the callback
 
+#### ReviewIndex API Response Actions
+* `receiveAllReviews`
+  0. invoked from an API callback
+  0. `Review` store updates `_reviews` and emits change
 
-### Notes API Request Actions
+#### Store Listeners
+* `ReviewIndex` component listens to `Review` store
 
-* `fetchAllNotes`
-  0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notes` is called.
-  0. `receiveAllNotes` is set as the callback.
+### Map Showing Customer Savings
+#### Map API Request Actions
+* `fetchAllSavings`
+  0. invoked from `Map` `didMount`
+  0. `GET /api/savings` is called
+  0. `receiveAllSavings` is set as the callback
 
-* `createNote`
-  0. invoked from new note button `onClick`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+#### Map API Response Actions
+* `receiveAllSavings`
+  0. invoked from an API callback
+  0. `Savings` store updates `_savings` and emits change
 
-* `fetchSingleNote`
-  0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notes/:id` is called.
-  0. `receiveSingleNote` is set as the callback.
+#### Store Listeners
+* `Map` component listens to `Savings` store
 
-* `updateNote`
-  0. invoked from `NoteForm` `onSubmit`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+## New User Page Cycles
 
-* `destroyNote`
-  0. invoked from delete note button `onClick`
-  0. `DELETE /api/notes/:id` is called.
-  0. `removeNote` is set as the callback.
+### User Component
+#### User Request Actions
+* `createUser`
+  0. invoked from new user button `onClick`
+  0. `POST /api/users` is called
+  0. `receiveSingleUser` is set as callback
 
-### Notes API Response Actions
+#### User Response Actions
+* `receiveSingleUser`
+  0. invoked from an API callback
+  0. `Users` store updates `_currentUser` and emits change
 
-* `receiveAllNotes`
-  0. invoked from an API callback.
-  0. `Note` store updates `_notes` and emits change.
+#### Store Listeners
+* `User` component listens to `Users` store
 
-* `receiveSingleNote`
-  0. invoked from an API callback.
-  0. `Note` store updates `_notes[id]` and emits change.
+## Login Page Cycles
 
-* `removeNote`
-  0. invoked from an API callback.
-  0. `Note` store removes `_notes[id]` and emits change.
+### New Session Component
+#### New Session Request Actions
+* `createSession`
+  0. invoked from Log In button `onClick`
+  0. `POST /api/session` is called
+  0. `receiveSingleUser` is set as callback
 
-### Store Listeners
+#### Session Response Actions
+* `receiveSingleUser`
+  0. invoked as an API callback
+  0. `Users` store updates `_currentUser` and emits change
 
-* `NotesIndex` component listens to `Note` store.
-* `NoteDetail` component listens to `Note` store.
+#### Store Listeners
+* `Session` component listens to `Users` store
 
+## New Transfer Page Cycles
 
-## Notebook Cycles
+### Transfer Component
+#### Transfer Confirmation Request Actions
+* `createTransfer`
+  0. invoked from Transfer button `onClick`
+  0. `POST /api/transfers` is called
+  0. `receiveSingleTransfer` is set as callback
 
-### Notebooks API Request Actions
+#### Transfer Confirmation Response Actions
+* `receiveSingleTransfer`
+  0. invoked as an API callback
+  0. `Transfers` store updates `_transfers` and emits change
 
-* `fetchAllNotebooks`
-  0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks` is called.
-  0. `receiveAllNotebooks` is set as the callback.
+#### Store Listeners
+* `TransferConfirmation` component listens to `Transfers` store
 
-* `createNotebook`
-  0. invoked from new notebook button `onClick`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+## User Dashboard Page Cycles
 
-* `fetchSingleNotebook`
-  0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+### Transaction History Component
+#### Transaction History Request Actions
+* `fetchUserTransactions`
+  0. invoked from `didMount`
+  0. `GET /api/users/:id/transfers` is called
+  0. `receiveUserTransactions` is set as callback
 
-* `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+#### Transaction History Response Actions
+* `receiveUserTransactions`
+  0. invoked as an API callback
+  0. `Transfers` store updates `_transfers` and emits change
 
-* `destroyNotebook`
-  0. invoked from delete notebook button `onClick`
-  0. `DELETE /api/notebooks/:id` is called.
-  0. `removeNotebook` is set as the callback.
+#### Store Listeners
+* `TransactionHistory` component listens to `Transfers` store
 
-### Notebooks API Response Actions
+### Account Settings Request Actions
+#### Account Settings Request Actions
+* `updateUserPassword`
+  0. invoked from Save `onClick`
+  0. `PATCH /api/users/:id` is called
+  0. `receiveSingleUser` is set as callback
 
-* `receiveAllNotebooks`
-  0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks` and emits change.
+#### Account Settings Response Actions
+* `receiveSingleUser`
+  0. invoked as an API callback
+  0. `Users` store updates `_currentUser` and emits change
 
-* `receiveSingleNotebook`
-  0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks[id]` and emits change.
-
-* `removeNotebook`
-  0. invoked from an API callback.
-  0. `Notebook` store removes `_notebooks[id]` and emits change.
-
-### Store Listeners
-
-* `NotebooksIndex` component listens to `Notebook` store.
-
-
-## SearchSuggestion Cycles
-
-* `fetchSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when there is text
-  0. `GET /api/notes` is called with `text` param.
-  0. `receiveSearchSuggestions` is set as the callback.
-
-* `receiveSearchSuggestions`
-  0. invoked from an API callback.
-  0. `SearchSuggestion` store updates `_suggestions` and emits change.
-
-* `removeSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when empty
-  0. `SearchSuggestion` store resets `_suggestions` and emits change.
-
-### Store Listeners
-
-* `SearchBarSuggestions` component listens to `SearchSuggestion` store.
+#### Store Listeners
+* `AccountSettings` component listens to `Users` store
