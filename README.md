@@ -1,4 +1,4 @@
-# FresherNote
+# CommonCents
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
@@ -6,29 +6,39 @@
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+CommonCents is a web application inspired by TransferWise that will be built using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
+- [ ] Landing page with interactive widgets
 - [ ] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [ ] Adequate seed data to demonstrate the site's features
-- [ ] The minimally necessary features for an Evernote-inspired site: note creation and saving, note editing, and notes organized into notebooks
+- [ ] The minimally necessary features for an TransferWise-inspired site: exchange rates between selected currencies,  make a new transaction, and dashboard of past transactions
 - [ ] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](https://github.com/appacademy/sample-project-proposal/blob/master/docs/production_readme.md) -- you'll write this later)
+- [ ] A production README, replacing this README
 
 ## Product Goals and Priorities
 
-FresherNote will allow users to do the following:
+CommonCents will allow users to do the following:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account (MVP)
-- [ ] Log in / Log out, including as a Guest/Demo User (MVP)
-- [ ] Create, read, edit, and delete notes (MVP)
-- [ ] Organize notes within Notebooks (MVP)
-- [ ] Tag notes with multiple tags (expected feature, but not MVP)
-- [ ] Apply complex styling to notes while editing (expected feature, but not MVP)
+- [ ] Interact with a landing page to discover CommonCents’ offering
+  - [ ] Currency conversion widget (P1 - MVP)
+  - [ ] Graph of exchange rates over past 30 days (P2 - expected feature, but not MVP)
+    - [ ] Links to competitor website via query string (P2 - expected feature, but not MVP)
+  - [ ] User reviews side-scrolling carousel (P2 - expected feature, but not MVP)
+  - [ ] Interactive map of supported countries with pulses simulating active transactions (P3 - stretch feature)
+- [ ] Create an account (P1 - MVP)
+- [ ] Log in / Log out, including as a Guest/Demo User (P1 - MVP)
+- [ ] Make a new transfer transaction in 3 basic steps: currency pair, sender’s details, receiver’s details  (P1 - MVP)
+  - [ ] Note: transaction is simulated only and not connected to any bank APIs
+  - [ ] Confirmation screen with transaction summary (P2 - expected feature, but not MVP)
+  - [ ] Interactive breadcrumbs throughout transfer process  (P3 - stretch feature)
+- [ ] User dashboard with list of past transactions and ability to make a new transfer (P2 - expected feature, but not MVP)
+- [ ] Update account settings: update email, update password, default currency (P2 - expected feature, but not MVP)
+- [ ] Currency exchange rates connected to a live JSON API such Fixer.io, Open Exchange Rates (P3 - stretch feature)
 
 ## Design Docs
 * [View Wireframes][views]
