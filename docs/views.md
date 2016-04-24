@@ -1,22 +1,22 @@
 # View Wireframes
 
 ![landing-page]
+![landing-page-components]
 
 ![new-user-and-session]
+![new-user-and-session-components]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+![new-transfer]
+![new-transfer-components]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
-
-## NotebookForm
-![notebook-form]
+![user-dashboard]
+![user-dashboard-components]
 
 [landing-page]: ./wireframes/landing_page.png
-[new-user-and-session]: ./wireframes/account_creation_and_login.png
-
-
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[landing-page-components]: ./wireframes/landing_page_components.png
+[new-user-and-session]: ./wireframes/new_user_and_session.png
+[new-user-and-session-components]: ./wireframes/new_user_and_session_components.png
+[new-transfer]: ./wireframes/new_transfer.png
+[new-transfer-components]: ./wireframes/new_transfer_components.png
+[user-dashboard]: ./wireframes/user_dashboard.png
+[user-dashboard-components]: ./wireframes/user_dashboard_components.png
