@@ -1,9 +1,7 @@
 # View Wireframes
 
-## Landing Page
 ![landing-page]
 
-## New User & New Session
 ![new-user-and-session]
 
 ## NotesIndex / NoteIndexItem / NoteForm
