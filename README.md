@@ -25,14 +25,14 @@ CommonCents will allow users to do the following:
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Interact with a landing page to discover CommonCents’ offering
-  - [ ] Currency conversion widget (P1 - MVP)
+  - [ ] Currency conversion widget (&#x1F534; P1 - MVP)
   - [ ] Graph of exchange rates over past 30 days (P2 - expected feature, but not MVP)
     - [ ] Links to competitor website via query string (P2 - expected feature, but not MVP)
   - [ ] User reviews side-scrolling carousel (P2 - expected feature, but not MVP)
   - [ ] Interactive map of supported countries with pulses simulating active transactions (P3 - stretch feature)
-- [ ] Create an account (P1 - MVP)
-- [ ] Log in / Log out, including as a Guest/Demo User (P1 - MVP)
-- [ ] Make a new transfer transaction in 3 basic steps: currency pair, sender’s details, receiver’s details  (P1 - MVP)
+- [ ] Create an account (&#x1F534; P1 - MVP)
+- [ ] Log in / Log out, including as a Guest/Demo User (&#x1F534; P1 - MVP)
+- [ ] Make a new transfer transaction in 3 basic steps: currency pair, sender’s details, receiver’s details  (&#x1F534; P1 - MVP)
   - [ ] Note: transaction is simulated only and not connected to any bank APIs
   - [ ] Confirmation screen with transaction summary (P2 - expected feature, but not MVP)
   - [ ] Interactive breadcrumbs throughout transfer process  (P3 - stretch feature)
