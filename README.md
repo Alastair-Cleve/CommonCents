@@ -26,19 +26,19 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Interact with a landing page to discover CommonCents’ offering
   - [ ] Currency conversion widget (&#x1F534; P1 - MVP)
-  - [ ] Graph of exchange rates over past 30 days (P2 - expected feature, but not MVP)
-    - [ ] Links to competitor website via query string (P2 - expected feature, but not MVP)
-  - [ ] User reviews side-scrolling carousel (P2 - expected feature, but not MVP)
-  - [ ] Interactive map of supported countries with pulses simulating active transactions (P3 - stretch feature)
+  - [ ] Graph of exchange rates over past 30 days (&#x1F535; P2 - expected feature, but not MVP)
+    - [ ] Links to competitor website via query string (&#x1F535; P2 - expected feature, but not MVP)
+  - [ ] User reviews side-scrolling carousel (&#x1F535; P2 - expected feature, but not MVP)
+  - [ ] Interactive map of supported countries with pulses simulating active transactions (&#x1F536; P3 - stretch feature)
 - [ ] Create an account (&#x1F534; P1 - MVP)
 - [ ] Log in / Log out, including as a Guest/Demo User (&#x1F534; P1 - MVP)
 - [ ] Make a new transfer transaction in 3 basic steps: currency pair, sender’s details, receiver’s details  (&#x1F534; P1 - MVP)
   - [ ] Note: transaction is simulated only and not connected to any bank APIs
-  - [ ] Confirmation screen with transaction summary (P2 - expected feature, but not MVP)
-  - [ ] Interactive breadcrumbs throughout transfer process  (P3 - stretch feature)
-- [ ] User dashboard with list of past transactions and ability to make a new transfer (P2 - expected feature, but not MVP)
-- [ ] Update account settings: update email, update password, default currency (P2 - expected feature, but not MVP)
-- [ ] Currency exchange rates connected to a live JSON API such Fixer.io, Open Exchange Rates (P3 - stretch feature)
+  - [ ] Confirmation screen with transaction summary (&#x1F535; P2 - expected feature, but not MVP)
+  - [ ] Interactive breadcrumbs throughout transfer process  (&#x1F536; P3 - stretch feature)
+- [ ] User dashboard with list of past transactions and ability to make a new transfer (&#x1F535; P2 - expected feature, but not MVP)
+- [ ] Update account settings: update email, update password, default currency (&#x1F535; P2 - expected feature, but not MVP)
+- [ ] Currency exchange rates connected to a live JSON API such Fixer.io, Open Exchange Rates (&#x1F536; P3 - stretch feature)
 
 ## Design Docs
 * [View Wireframes][views]
