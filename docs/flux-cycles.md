@@ -1,18 +1,38 @@
 # Flux Cycles
 
-Flux loops are organized by data type. Under each data type, there may
-be sub-categories, and each action is listed with the sequence of events
-that result from its invocation, ending with the API or store. Finally,
-store listeners are listed at the end.
+## Landing Page Cycles
 
-You should be able to use this document trace an **action** starting
-with where it was invoked, through the **API**/**store** involved, and
-finally to the **components** that update as a result. This is important
-because once you start implementing your flux loops, that's precisely
-what you'll need to do.
+### Currency Conversion API Request Actions
+* `fetchFromCurrency` & `fetchToCurrency`
+  0. invoked from `Conversion` `didMount`/`onClick` event-handlers
+  0. `GET /api...FromCurrency` and `GET /api/...ToCurrency` are called
+  0. `receiveFromCurrency` & `receiveToCurrency` are set at the callbacks
+
+* `fetchFromAmount` & `fetchToAmount`
+  0. invoked from `Conversion` `didMount`/`onClick` event-handlers
+  0. `GET /api...FromAmount` and `GET /api...ToAmount` are called
+  0. `receiveFromAmount` & `receiveToAmount` are set at the callbacks
+
+### Graph API Request Actions
+* Essentially a forex API call is made for the information in the graph
+
+### Graph API Response Actions
+* The graph is rendered
+
+### Currency Conversion API Response Actions
+* `receiveFromCurrency` & `receiveToCurrency`
+  0. invoked as API callbacks
+  0. `Conversion` store updates `_fromCurrency` and `_toCurrency` and emits change
+
+* `receiveFromAmount` & `receiveToAmount`
+  0. invoked as API callbacks
+  0. `Conversion` store updates `_fromAmount` and `_toAmount` and emits change
+
+### Store Listeners
+* `Currency` component listens to `Conversion` store
+* `Graph` component listens to `Conversion` store as well
 
 
-## Note Cycles
 
 ### Notes API Request Actions
 
