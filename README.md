@@ -6,7 +6,7 @@
 
 ## Minimum Viable Product
 
-CommonCents is a web application inspired by TransferWise that will be built using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+Common&#xFFE0;ents is a web application inspired by TransferWise that will be built using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [ ] Landing page with interactive widgets
 - [ ] New account creation, login, and guest/demo login
@@ -19,12 +19,12 @@ CommonCents is a web application inspired by TransferWise that will be built usi
 
 ## Product Goals and Priorities
 
-CommonCents will allow users to do the following:
+Common&#xFFE0;ents will allow users to do the following:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Interact with a landing page to discover CommonCents’ offering
+- [ ] Interact with a landing page to discover Common&#xFFE0;ents’ offering
   - [ ] Currency conversion widget (&#x1F534; P1 - MVP)
   - [ ] Graph of exchange rates over past 30 days (&#x1F535; P2 - expected feature, but not MVP)
     - [ ] Links to competitor website via query string (&#x1F535; P2 - expected feature, but not MVP)
