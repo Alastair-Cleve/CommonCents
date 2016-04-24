@@ -33,14 +33,14 @@ static, non-changing content, so there will be no flux loops for that.)
 The basic idea is this: I will extract the From-currency and the To-currency from
 dropdown menus that show supported currencies. Then, the user will type in an
 amount in the `FromAmount` box or the `ToAmount` box, which are adjacent to the
-From-currency and To-currency. This event will trigger the component make a
+From-currency and To-currency. This event will trigger the component to make a
 call to the fixer.io API, which is an exchange-rate API. Thus, if a user selected
 EUR as the From-currency, USD as the To-currency, and &#x20AC;1,000 as the
 FromAmount, the Conversion widget will populate the ToAmount with the correct figure:
   1. First, a GET call to http://api.fixer.io/latest
      This will provide the current exchange rates. The default base currency is EUR.
   2. Then, the exchange rate against the To-Currency will be extracted, i.e.
-     data.rates.USD. In this case, this provides 1.1263, i.e. &#x20AC;1 = $1.1263.
+     `data.rates.USD`. In this case, this provides 1.1263, i.e. &#x20AC;1 = $1.1263.
   3. Once I have the rate, the To-amount can be calculated: 1000 x 1.1263 = $1,126.
      This rate will then populate the To-Amount box.
 Basically, is this the way I should do it: with a full flux loop and a Conversion

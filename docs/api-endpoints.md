@@ -6,7 +6,7 @@
 
 - `GET /` - loads React web app
 
-### Users
+<!-- ### Users
 
 - `GET /users/new`
 - `POST /users`
@@ -16,38 +16,36 @@
 
 - `GET /session/new`
 - `POST /session`
-- `DELETE /session`
+- `DELETE /session` -->
 
 ## JSON API
 
-### Notes
+### Users
 
-- `GET /api/notes`
-  - Notes index/search
-  - accepts `tag_name` query param to list notes by tag
-  - accepts pagination params (if I get there)
-- `POST /api/notes`
-- `GET /api/notes/:id`
-- `PATCH /api/notes/:id`
-- `DELETE /api/notes/:id`
+- `POST /api/users`
+- `PATCH /api/users/:id`
 
-### Notebooks
+### Session
 
-- `GET /api/notebooks`
-- `POST /api/notebooks`
-- `GET /api/notebooks/:id`
-- `PATCH /api/notebooks/:id`
-- `DELETE /api/notebooks/:id`
-- `GET /api/notebooks/:id/notes`
-  - index of all notes for a notebook
-  - accepts pagination params (if I get there)
+- `POST /api/session`
+- `DELETE api/session`
 
-### Tags
+### Reviews
 
-- A note's tags will be included in the note show template
-- `GET /api/tags`
-  - includes query param for typeahead suggestions
-- `POST /api/notes/:note_id/tags`: add tag to note by name
-  - if note doesn't already exist, it will be created
-- `DELETE /api/notes/:note_id/tags/:tag_name`: remove tag from note by
-  name
+- `GET /api/reviews`
+  - This populates the Reviews carousel. May add a feature to create a review,
+    but that would be a stretch goal.
+
+### Savings
+
+- `GET /api/savings`
+  - This populates the Map showing customer savings. I intend to hard-code this,
+    and the `Map` component will cause this request to be made. **NB:** I've thought
+    about collapsing this information into the `transfers` table. Should I do this?
+
+### Transfers
+
+- `POST /api/user/:id/transfers`
+   - This call is made when the user submits a currency transfer request.
+- `GET /api/users/:id/transfers`
+   - This call is made to list the user's past currency transfers on the dashboard.
