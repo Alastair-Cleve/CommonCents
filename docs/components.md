@@ -1,9 +1,9 @@
 ## Component Hierarchy
 
 * `App`
-  * `Navbar` (includes links to `NewUser`, `DemoUser`, `ReturnUser`)
+  * `Navbar` (includes links to `NewUser` / `DemoUser`, `ReturnUser`)
   * `Overview`
-    * `Conversion` (includes links to `NewTransfer`)
+    * `Conversion` (includes link to `NewTransfer`)
   * `Graph`
   * `ReviewIndex`
     * `ReviewIndexItem`
