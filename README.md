@@ -60,98 +60,103 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **Objective:** Functioning rails project with Authentication
 
 - [ ] create new project
+- [ ] create `users` table
 - [ ] create `User` model
 - [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [ ] user signup/login pages
+- [ ] blank dashboard page after login
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days)
+### Phase 2: Currency Conversion widget (1.0 days)
 
-**Objective:** Notes can be created, read, edited and destroyed through
-the API.
+**Objective:** Functioning currency conversion widget on landing page
 
-- [ ] create `Note` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [ ] Set up basic APIUtil
+- [ ] Set up Flux structure:
+  - [ ] `Conversion` store
+  - [ ] `Conversion` component
+  - [ ] Client & Server Actions
+- [ ] Implement fixer.io API
+- [ ] Basic Styling
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Phase 3: Foreign Exchange 30-day graph (1.0 days)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
-user interface.
+**Objective:** Functioning 30-day exchange rate history
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
-  after editing.
+- [ ] Set up listener to Conversion store:
+  - [ ] Listen for changes in `_fromCurrency` and `_toCurrency`
+- [ ] Set up API interaction
+- [ ] Chart creation with something like react-chartjs
 
-### Phase 4: Start Styling (0.5 days)
+### Phase 4: Customer Review Carrousel: Reviews Model & API (1.0 days)
 
-**Objective:** Existing pages (including singup/signin) will look good.
+**Objective:** Review carrousel is functioning
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
+- [ ] create `reviews` table
+- [ ] create `Review` model & populate with data
+- [ ] implement index action on controller
+- [ ] jBuilder view for index
+- [ ] implement React component with react-slick
 
-### Phase 5: Notebooks (1 day)
+### Phase 5: Map Showing Customer Savings (1.0 days)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Map showing how much customers have saved is functioning
 
-- [ ] create `Notebook` model
-- build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- Use CSS to style new views
+- [ ] create `savings` table
+- [ ] create `savings` model & populate with data
+- [ ] implement index action on controller
+- [ ] jBuilder view for index
+- [ ] implement React component showing a map with thumbtacks jumping
+      around on the page showing how much people have saved
+      **NB:** I could use some suggestions on how this would be rendered: see
+      the TransferWise website for how it appears
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
+### Phase 6: Create Navbar & User and Session Components (1.0 days)
 
-### Phase 6: Tags (1.5 days)
+**Objective:** Have working User and Session modals
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+- [ ] Create Navbar component
+  - [ ] It should listen to the `Users` store
+- [ ] It should contain links to Login, Demo, and Sign Up
+  - [ ] These links have onClick event-listeners that cause the components
+        to render as modals
+- [ ] Implement full Flux pattern for these elements
+  - [ ] They listen to the `Users` store and set the `_currentUser` variable
+- [ ] Use `react-modal`
 
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
-- [ ] Style new elements
+### Phase 7: Currency Transfer Component (1.0 days)
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days)
+**Objective:** Implement a form where users can make currency transfers
+**NB:** Rather than actually sending foreign currency, this will instead
+populate the users's transfer history.
 
-**objective:** Enable complex styling of notes.
+- [ ] Create transfers database table
+- [ ] Create transfers model and controller
+- [ ] Implement Flux architecture:
+  - [ ] `Transfers` store
+  - [ ] `_transfers` variable in `Transfers` store
+- [ ] Set up as a single long page first and then implement bread crumb
+      architecture later
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+### Phase 8: User Dashboard (1.0 days)
 
-### Phase 8: Styling Cleanup and Seeding (1 day)
+**Objective:** Have a functioning user dashboard
 
-**objective:** Make the site feel more cohesive and awesome.
+- [ ] Implement TransactionHistory component
+  - [ ] This will be a list of FOREX transactions that the user has made organized
+        by the date of the transaction
+  - [ ] FLUX architecture will involve `GET /api/users/:id/transfers`
+  - [ ] There will be a `Transfers` Store
+  - [ ] `TransactionHistory` listens to the `Transfers` Store
+- [ ] Nest the currency conversion widget into the component so that additional
+      transfers can be made
+- [ ] Implement basic password updating via `AccountSettings` component
+  - [ ] `PATCH /api/users/:id`
+  - [ ] AccountSettings listens to `Users` store
+  - [ ] Implemented as a modal
 
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+### Phase 9: Additional CSS styling (0.5 days + all weekend if necessary)
 
-### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+**Objective:** Fix any styling issues
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+- [ ] Fix outstanding styling issues
+- [ ] Indulge in other styling desires
