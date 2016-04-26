@@ -12,7 +12,7 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
-        <header><h1>Common &#xa2;ents</h1></header>
+        <header><h1>Common&#xFFE0;ents</h1></header>
       </div>
     );
   }

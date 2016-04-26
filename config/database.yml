@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: CommonCents_production
-  username: CommonCents
-  password: <%= ENV['COMMONCENTS_DATABASE_PASSWORD'] %>
