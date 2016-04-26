@@ -1,6 +1,6 @@
 # Common&#xFFE0;ents
 
-[Heroku link][heroku] **NB:** This will be a link to my production site.
+[Heroku link][heroku]
 
 [heroku]: https://commoncentsapp.herokuapp.com
 
