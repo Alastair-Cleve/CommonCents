@@ -24,6 +24,7 @@
 
 - `POST /api/users`
 - `PATCH /api/users/:id`
+- `GET /api/users/:id`
 
 ### Session
 
