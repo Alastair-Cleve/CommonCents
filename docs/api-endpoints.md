@@ -45,7 +45,7 @@
 
 ### Transfers
 
-- `POST /api/user/:id/transfers`
+- `POST /api/transfers`
    - This call is made when the user submits a currency transfer request.
-- `GET /api/users/:id/transfers`
+- `GET /api/transfers`
    - This call is made to list the user's past currency transfers on the dashboard.
