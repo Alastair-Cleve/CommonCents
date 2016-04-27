@@ -36,6 +36,7 @@ var LoginForm = React.createClass({
 		this.setState({form: e.target.value});
 	},
 	handleSubmit: function(e){
+    // debugger;
 		e.preventDefault();
 		UserActions[this.state.form]({
 			username: this.state.username,
@@ -116,7 +117,7 @@ var LoginForm = React.createClass({
 						</label>
 					</section>
 
-					<input type="Submit" value="Submit"/>
+					<input readOnly={true} type="Submit" value="Submit"/>
 				</form>
 		);
 	},
