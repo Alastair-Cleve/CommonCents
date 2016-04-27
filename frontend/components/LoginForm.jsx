@@ -12,12 +12,13 @@ var currencies = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK",
 var LoginForm = React.createClass({
 	// mixins: [CurrentUserState],
 	getInitialState: function(){
-		return ({form: "login",
+		return ({form: "signup",
             username: "",
             password: "",
             default_currency: "",
             currentUser: UserStore.currentUser(),
-      			userErrors: UserStore.errors()
+      			userErrors: UserStore.errors(),
+            show_currency: true
       });
 	},
   componentDidMount: function(){
@@ -34,6 +35,11 @@ var LoginForm = React.createClass({
   },
 	setForm: function(e){
 		this.setState({form: e.target.value});
+    if (this.state.form === "signup") {
+      this.setState({show_currency: true})
+    } else {
+      this.setState({show_currency: false})
+    }
 	},
 	handleSubmit: function(e){
     // debugger;
@@ -82,10 +88,12 @@ var LoginForm = React.createClass({
 		</ul>);
 	},
 	form: function(){
+    // debugger;
 		if (this.state.currentUser) {
 			return;
 		}
-		return(
+    if (this.state.show_currency) {
+      return(
 				<form onSubmit={this.handleSubmit}>
 					<section>
 						<label> Username:
@@ -119,7 +127,34 @@ var LoginForm = React.createClass({
 
 					<input readOnly={true} type="Submit" value="Submit"/>
 				</form>
-		);
+      )
+    } else {
+       return(
+        <form onSubmit={this.handleSubmit}>
+          <section>
+            <label> Username:
+              <input type="text" onChange={this.handleUsername}/>
+            </label>
+
+            <label> Password:
+              <input type="password" onChange={this.handlePassword}/>
+            </label>
+          </section>
+
+          <section>
+            <label> Login
+              <input type="Radio" name="action" value="login" onChange={this.setForm}/>
+            </label>
+
+            <label> Sign Up
+              <input type="Radio" name="action" value="signup" onChange={this.setForm}/>
+            </label>
+          </section>
+
+          <input readOnly={true} type="Submit" value="Submit"/>
+        </form>
+      )
+    }
 	},
 	render: function(){
 		return (
