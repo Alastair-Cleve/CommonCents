@@ -9,6 +9,10 @@ var ConversionActions = {
       actionType: ConversionConstants.RECEIVE_RATES_OBJECT,
       rates_object: rates_object
     })
+  },
+
+  fetchRatesForBase: function(base) {
+    ConversionUtil.fetchRatesForBase(base);
   }
 };
 

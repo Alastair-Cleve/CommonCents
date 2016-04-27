@@ -9,6 +9,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
 //Components
 var LoginForm = require('./components/LoginForm');
+var ConversionWidget = require('./components/ConversionWidget');
 //Mixins - Temporarily Unused - Refactor
 var CurrentUserState = require('./mixins/current_user_state');
 
@@ -18,6 +19,7 @@ var App = React.createClass({
       <div>
        <header><h1>Common&#xFFE0;ents</h1></header>
        <LoginForm/>
+       <ConversionWidget/>
       </div>
     );
   }

@@ -6,7 +6,7 @@ var ConversionUtil = {
 		$.ajax({
 			url: "http://api.fixer.io/latest?base=" + base,
 			type: "get",
-			success: ConversionActions. ,
+			success: ConversionActions.receiveRatesForBase,
 			error: options.error
 		});
 	}
