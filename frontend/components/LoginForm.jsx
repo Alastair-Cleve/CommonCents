@@ -34,15 +34,13 @@ var LoginForm = React.createClass({
     });
   },
 	setForm: function(e){
-		this.setState({form: e.target.value});
-    if (this.state.form === "signup") {
-      this.setState({show_currency: true})
+    if (e.target.value === "signup") {
+      this.setState({form: e.target.value, show_currency: true});
     } else {
-      this.setState({show_currency: false})
+      this.setState({form: e.target.value, show_currency: false})
     }
 	},
 	handleSubmit: function(e){
-    // debugger;
 		e.preventDefault();
 		UserActions[this.state.form]({
 			username: this.state.username,
@@ -88,13 +86,12 @@ var LoginForm = React.createClass({
 		</ul>);
 	},
 	form: function(){
-    // debugger;
 		if (this.state.currentUser) {
 			return;
 		}
     if (this.state.show_currency) {
       return(
-				<form onSubmit={this.handleSubmit}>
+				<form>
 					<section>
 						<label> Username:
 							<input type="text" onChange={this.handleUsername}/>
@@ -116,21 +113,16 @@ var LoginForm = React.createClass({
 					</section>
 
 					<section>
-						<label> Login
-							<input type="Radio" name="action" value="login" onChange={this.setForm}/>
-						</label>
-
-						<label> Sign Up
-							<input type="Radio" name="action" value="signup" onChange={this.setForm}/>
-						</label>
+            <button onClick={this.setForm} value="login">Login</button>
+            <button onClick={this.setForm} value="signup">Sign Up</button>
 					</section>
 
-					<input readOnly={true} type="Submit" value="Submit"/>
+					<input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/>
 				</form>
       )
     } else {
        return(
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <section>
             <label> Username:
               <input type="text" onChange={this.handleUsername}/>
@@ -142,16 +134,11 @@ var LoginForm = React.createClass({
           </section>
 
           <section>
-            <label> Login
-              <input type="Radio" name="action" value="login" onChange={this.setForm}/>
-            </label>
+            <button onClick={this.setForm} value="login">Login</button>
+            <button onClick={this.setForm} value="signup">Sign Up</button>
+					</section>
 
-            <label> Sign Up
-              <input type="Radio" name="action" value="signup" onChange={this.setForm}/>
-            </label>
-          </section>
-
-          <input readOnly={true} type="Submit" value="Submit"/>
+          <input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/>
         </form>
       )
     }
