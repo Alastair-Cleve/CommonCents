@@ -48,6 +48,13 @@ var LoginForm = React.createClass({
       default_currency: this.state.default_currency
 		});
 	},
+  handleDemo: function(e){
+    e.preventDefault();
+    UserActions.login({
+      username: "guest",
+      password: "password"
+    });
+  },
   handleUsername: function(e){
     this.setState({username: e.target.value});
   },
@@ -117,7 +124,8 @@ var LoginForm = React.createClass({
             <button onClick={this.setForm} value="signup">Sign Up</button>
 					</section>
 
-					<input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/>
+					<input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
+          <input readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
 				</form>
       )
     } else {
@@ -138,7 +146,8 @@ var LoginForm = React.createClass({
             <button onClick={this.setForm} value="signup">Sign Up</button>
 					</section>
 
-          <input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/>
+          <input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
+          <input readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
         </form>
       )
     }

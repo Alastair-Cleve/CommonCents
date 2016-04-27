@@ -58,12 +58,15 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] create new project
-- [ ] create `users` table
-- [ ] create `User` model
-- [ ] create Flux architecture with Session store
-- [ ] user signup/login
-- [ ] blank dashboard page after login
+- [x] create new project
+- [x] create `users` table
+- [x] create `User` model
+- [x] create Flux architecture with Session store
+- [x] user signup/login
+- [x] `Default Currency` toggles on and off with `Login` and `Signup`
+- [x] Implement a `Demo` user
+- [x] blank dashboard page after login
+- [x] Add favicon
 
 ### Phase 2: Currency Conversion widget (1.5 days)
 
