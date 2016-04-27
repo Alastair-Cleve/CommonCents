@@ -1,23 +1,57 @@
 var React = require("react");
-var LinkedStateMixin = require('react-addons-linked-state-mixin');
+// var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var UserActions = require("../actions/user_actions");
-var CurrentUserState = require("../mixins/current_user_state");
+var UserStore = require('../stores/user_store');
+// var CurrentUserState = require("../mixins/current_user_state");
+var currencies = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK",
+  "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JPY", "KRW",
+  "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "RON", "RUB", "SEK", "SGD",
+  "THB", "TRY", "USD", "ZAR"];
+
 
 var LoginForm = React.createClass({
-	mixins: [LinkedStateMixin, CurrentUserState],
+	// mixins: [CurrentUserState],
 	getInitialState: function(){
-		return {form: "login"};
+		return ({form: "login",
+            username: "",
+            password: "",
+            default_currency: "",
+            currentUser: UserStore.currentUser(),
+      			userErrors: UserStore.errors()
+      });
 	},
+  componentDidMount: function(){
+    UserStore.addListener(this.updateUser);
+    if (typeof UserStore.currentUser() === 'undefined') {
+      UserActions.fetchCurrentUser();
+    }
+  },
+  updateUser: function(){
+    this.setState({
+      currentUser: UserStore.currentUser(),
+      userErrors: UserStore.errors()
+    });
+  },
 	setForm: function(e){
-		this.setState({form: e.currentTarget.value});
+		this.setState({form: e.target.value});
 	},
 	handleSubmit: function(e){
 		e.preventDefault();
 		UserActions[this.state.form]({
 			username: this.state.username,
-			password: this.state.password
+			password: this.state.password,
+      default_currency: this.state.default_currency
 		});
 	},
+  handleUsername: function(e){
+    this.setState({username: e.target.value});
+  },
+  handlePassword: function(e){
+    this.setState({password: e.target.value});
+  },
+  handleDefaultCurrency: function(e){
+    this.setState({default_currency: e.target.value});
+  },
 	logout: function(e){
 		e.preventDefault();
 		UserActions.logout();
@@ -54,12 +88,22 @@ var LoginForm = React.createClass({
 				<form onSubmit={this.handleSubmit}>
 					<section>
 						<label> Username:
-							<input type="text" valueLink={this.linkState("username")}/>
+							<input type="text" onChange={this.handleUsername}/>
 						</label>
 
 						<label> Password:
-							<input type="password" valueLink={this.linkState("password")}/>
+							<input type="password" onChange={this.handlePassword}/>
 						</label>
+
+            <label> Default Currency:
+              <select onChange={this.handleDefaultCurrency} defaultValue="USD">
+                {
+                  currencies.map(function(currency, idx) {
+                    return(<option key={idx} value={currency}>{currency}</option>)
+                  })
+                }
+              </select>
+            </label>
 					</section>
 
 					<section>
