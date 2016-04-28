@@ -74,7 +74,6 @@ var LoginForm = React.createClass({
 		}
 		return (
 			<div>
-				<h2>Hi, {this.state.currentUser.username}!</h2>
 				<input type="submit" value="logout" onClick={this.logout}/>
 			</div>
 		);

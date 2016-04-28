@@ -12,13 +12,16 @@ var LoginForm = require('./components/LoginForm');
 var ConversionWidget = require('./components/ConversionWidget');
 //Mixins - Temporarily Unused - Refactor
 var CurrentUserState = require('./mixins/current_user_state');
+//Modal for Login
+var Modal = require('react-modal');
+var Header = require('./components/Header');
 
 var App = React.createClass({
   render: function(){
     return (
       <div>
        <header><h1>Common&#xFFE0;ents</h1></header>
-       <LoginForm/>
+       <Header />
        <ConversionWidget/>
       </div>
     );
@@ -36,5 +39,6 @@ var Router = (
 
 document.addEventListener('DOMContentLoaded', function(){
   var root = document.getElementById('content');
+  Modal.setAppElement(document.body);
   ReactDOM.render(Router, root);
 });
