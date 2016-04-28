@@ -64,35 +64,36 @@ var ConversionWidget = React.createClass({
 
   render: function () {
       return(
-        <form>
-          <h3>Conversion Widget</h3>
-          <section>
+        <form id="conversion" className="group">
+          <section className="conversion">
             <label> You're sending exactly:
               <input type="text" onChange={this.handleFromAmount} value={this.state.fromAmount}/>
-            </label>
+            </label> <br /><br />
 
             <label> Recipient gets:
               <input type="text" onChange={this.handleToAmount} value={this.state.toAmount}/>
             </label>
+          </section>
 
-            <label> Which currency are you selling?:
-              <select onChange={this.handleFromCurrency} value={this.state.fromCurrency}>
+          <section className="conversion">
+
+              <select className="currency" onChange={this.handleFromCurrency} value={this.state.fromCurrency}>
                 {
                   currency_constants.currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}{currency}</option>)
+                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
                   })
                 }
               </select>
-            </label>
-            <label> Which currency are you buying?:
-              <select onChange={this.handleToCurrency} defaultValue={this.state.toCurrency}>
+
+
+              <select className="currency" onChange={this.handleToCurrency} defaultValue={this.state.toCurrency}>
                 {
                   currency_constants.currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}{currency}</option>)
+                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
                   })
                 }
               </select>
-            </label>
+
           </section>
         </form>
     );

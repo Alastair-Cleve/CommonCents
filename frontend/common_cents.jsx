@@ -20,8 +20,20 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
-       <header><h1>Common&#xFFE0;ents</h1></header>
-       <Header />
+        <header className="header">
+          <nav className="header-nav group">
+
+            <h1 className="header-logo">
+              <a href="#">Common&#xFFE0;ents</a>
+            </h1>
+
+            <ul className="header-list group">
+              <li><Header /></li>
+            </ul>
+
+          </nav>
+        </header>
+
        <ConversionWidget/>
       </div>
     );

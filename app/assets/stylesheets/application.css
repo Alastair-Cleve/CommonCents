@@ -13,3 +13,136 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Reset */
+ body, div, header, footer, section, h1,
+ h2, h3, h4, h5, h6 {
+   margin: 0;
+   padding: 0;
+
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ img {
+   display: block;
+   width: 100%;
+   height: auto;
+ }
+
+ input[type="password"],
+ input[type="username"],
+ input[type="text"],
+ input[type="submit"],
+ textarea,
+ button {
+   /*
+   Get rid of native styling. Read more here:
+   http://css-tricks.com/almanac/properties/a/appearance/
+   */
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   font-size: 12px;
+   cursor: pointer;
+ }
+
+ button,
+ input[type="submit"] {
+   cursor: pointer;
+ }
+
+
+ #login {
+    background-color: #49274A;
+    padding: 0;
+    border: 0;
+    color: #F8EEE7;
+    font: 16px Roboto;
+    font-weight: 400;
+  }
+
+  #login:hover {
+    background-color: #94618E;
+  }
+
+  /* Clearfix */
+
+  .group:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  /* Header */
+
+ body {
+   font-family: "Roboto", sans-serif;
+   font-size: 16px;
+   font-weight: 400;
+   background: #F8EEE7;
+ }
+
+ .header {
+   background: #49274A;
+   color: #fff;
+   border-bottom: 1px solid #F4DECB;
+ }
+
+ .header a {
+   display: block;
+   padding: 10px 20px;
+   text-decoration: none;
+   color: #F8EEE7;
+ }
+
+ .header-nav {
+   margin: 0 auto;
+   width: 80%;
+   /*border-left: 1px solid #ccc;
+   border-right: 1px solid #ccc;*/
+ }
+
+ .header-logo {
+   float: left;
+   font-weight: 700;
+ }
+
+ .header-logo:hover {
+   background: #94618E;
+ }
+
+ .header-list {
+   float: right;
+ }
+
+ .header-list > li {
+   float: left;
+   /*border-left: 1px solid #ccc;*/
+ }
+
+ /*.header-list > li:hover {
+   background: #000;
+ }*/
+
+ /*Conversion Widget*/
+ #conversion {
+   outline: 2px groove #F4DECB;
+   margin: 20px;
+   padding: 20px;
+   float: right;
+   background-color: #F4DECB;
+ }
+
+ .conversion {
+   float: left;
+   width: 200px;
+ }
+
+ .currency {
+   display: block;
+   margin: 25px;
+   font-size: 56px;
+   width: 150px;
+ }

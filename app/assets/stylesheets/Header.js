@@ -6,7 +6,7 @@ module.exports = {
     'right'           : 0,
     'bottom'          : 0,
     'backgroundColor' : 'rgba(000, 000, 000, 0.75)',
-    'z-index'         : 10
+    'zIndex'          : 10
   },
   content : {
     'position'        : 'fixed',
@@ -16,7 +16,7 @@ module.exports = {
     'bottom'          : '100px',
     'border'          : '1px solid #ccc',
     'padding'         : '20px',
-    'z-index'         : 11,
+    'zIndex'          : 11,
     'opacity'         : 0,
     'transition'      : 'opacity 1s'
   }

@@ -8,7 +8,7 @@ var UserActions = require('../actions/user_actions');
 var Header = React.createClass({
   getInitialState: function(){
     return({ modalOpen: false,
-             label: "Log In/Sign In",
+             label: "Log In / Sign In",
              currentUser: UserStore.currentUser(),
        			 userErrors: UserStore.errors(),
              salutation: ""});
@@ -29,7 +29,7 @@ var Header = React.createClass({
                        salutation: "Hello, " + this.state.currentUser.username + "! ",
                        modalOpen: false})
       } else {
-        this.setState({label: "Log In/Sign In", salutation: ""})
+        this.setState({label: "Log In / Sign In", salutation: ""})
       }
     });
   },
@@ -53,7 +53,7 @@ var Header = React.createClass({
     return(
       <div>
         {this.state.salutation}
-        <button onClick={this._handleClick}>{this.state.label}</button>
+        <div id="login" onClick={this._handleClick}>{this.state.label}</div>
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.onModalClose}
