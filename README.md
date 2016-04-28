@@ -8,11 +8,11 @@
 
 Common&#xFFE0;ents is a web application inspired by TransferWise that will be built using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] New account creation, login, and guest/demo login
+- [x] New account creation, login, and guest/demo login
 - [ ] Smooth, bug-free navigation
 - [ ] Adequate seed data to demonstrate the site's features
 - [ ] The minimally necessary features for an TransferWise-inspired site: conversion widget to convert between selected currencies, an ability to make new FOREX transfers, a Navbar to navigate the site, and a dashboard of past transactions
-- [ ] Hosting on Heroku
+- [x] Hosting on Heroku
 - [ ] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
 
@@ -58,28 +58,33 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [x] create new project
-- [x] create `users` table
-- [x] create `User` model
-- [x] create Flux architecture with Session store
-- [x] user signup/login
+- [x] Create new project
+- [x] Create `users` table
+- [x] Create `User` model
+- [x] Create Flux architecture with Session store
+- [x] User signup/login
 - [x] `Default Currency` toggles on and off with `Login` and `Signup`
 - [x] Implement a `Demo` user
-- [x] blank dashboard page after login
-- [x] Add favicon
+- [x] Blank dashboard page after login
+- [x] Add favicon: something with coins
+- [x] Create modal for login/sign up
+- [x] Implement basic styling for modal and open fade
+- [ ] **Bonus!:** Animate demo login so that each letter is entered sequentially at 50ms
 
 ### Phase 2: Currency Conversion widget (1.5 days)
 
 **Objective:** Functioning currency conversion widget on landing page
 
-- [ ] Set up basic APIUtil
-- [ ] Set up Flux structure:
-  - [ ] `Conversion` store
-    - [ ] `_exchangeRate` variable in `Conversion` store
-  - [ ] `Conversion` component
-  - [ ] Client & Server Actions
-- [ ] Implement fixer.io API
+- [x] Set up basic APIUtil
+- [x] Set up Flux structure:
+  - [x] `Conversion` store
+    - [x] `_base` & `_ratesObject` variables in `Conversion` store
+  - [x] `Conversion` component
+  - [x] `Conversion` Actions
+- [x] Implement fixer.io API
+- [x] Implement bi-directional inputs  
 - [ ] Basic Styling
+- [ ] **Bonus!:** Prevent `fromCurrency` and `toCurrency` from being the same
 
 ### Phase 3: Foreign Currency Transfer Page (1.5 days)
 
