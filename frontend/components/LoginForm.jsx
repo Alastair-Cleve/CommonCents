@@ -3,6 +3,8 @@ var React = require("react");
 var UserActions = require("../actions/user_actions");
 var UserStore = require('../stores/user_store');
 // var CurrentUserState = require("../mixins/current_user_state");
+var currency_constants = require('../constants/currency_constants');
+
 var currencies = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK",
   "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "JPY", "KRW",
   "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "RON", "RUB", "SEK", "SGD",
@@ -110,8 +112,8 @@ var LoginForm = React.createClass({
             <label> Default Currency:
               <select onChange={this.handleDefaultCurrency} defaultValue="USD">
                 {
-                  currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency}</option>)
+                  currency_constants.currencies.map(function(currency, idx) {
+                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}{currency}</option>)
                   })
                 }
               </select>
