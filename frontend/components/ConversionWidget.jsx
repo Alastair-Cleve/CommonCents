@@ -3,8 +3,7 @@ var React = require("react");
 var ConversionActions = require("../actions/conversion_actions");
 var ConversionStore = require('../stores/conversion_store');
 // var CurrentUserState = require("../mixins/current_user_state");
-var currencies = require('../constants/currency_constants');
-
+var currency_constants = require('../constants/currency_constants');
 
 var ConversionWidget = React.createClass({
   getInitialState: function () {
@@ -79,8 +78,8 @@ var ConversionWidget = React.createClass({
             <label> Which currency are you selling?:
               <select onChange={this.handleFromCurrency} value={this.state.fromCurrency}>
                 {
-                  currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency}</option>)
+                  currency_constants.currencies.map(function(currency, idx) {
+                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}{currency}</option>)
                   })
                 }
               </select>
@@ -88,8 +87,8 @@ var ConversionWidget = React.createClass({
             <label> Which currency are you buying?:
               <select onChange={this.handleToCurrency} defaultValue={this.state.toCurrency}>
                 {
-                  currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency}</option>)
+                  currency_constants.currencies.map(function(currency, idx) {
+                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}{currency}</option>)
                   })
                 }
               </select>
