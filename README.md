@@ -83,7 +83,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
   - [x] `Conversion` Actions
 - [x] Implement fixer.io API
 - [x] Implement bi-directional inputs  
-- [ ] Basic Styling
+- [x] Basic Styling
 - [ ] **Bonus!:** Prevent `fromCurrency` and `toCurrency` from being the same
 
 ### Phase 3: Foreign Currency Transfer Page (1.5 days)
