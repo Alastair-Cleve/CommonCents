@@ -10,8 +10,8 @@ var ConversionWidget = React.createClass({
   getInitialState: function () {
     return({
       ratesObject: ConversionStore.ratesObject(),
-      fromAmount: 0,
-      toAmount: 0,
+      fromAmount: "0.00",
+      toAmount: "0.00",
       fromCurrency: "USD",
       toCurrency: "EUR"
     });
@@ -23,36 +23,44 @@ var ConversionWidget = React.createClass({
   },
 
   updateRatesWidget: function () {
-    this.setState({ratesObject: ConversionStore.ratesObject()});
-    var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
-    var toAmount = this.state.fromAmount * exchangeRate;
-    this.setState({toAmount: toAmount});
+    var rates = ConversionStore.ratesObject();
+    if (!jQuery.isEmptyObject(rates)) {
+      this.setState({ratesObject: ConversionStore.ratesObject()});
+      var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
+      var toAmount = (this.state.fromAmount * exchangeRate);
+      this.setState({toAmount: toAmount.toFixed(2)});
+    }
   },
 
   handleFromAmount: function (e) {
-    this.setState({fromAmount: e.target.value});
-    var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
-    var toAmount = this.state.fromAmount * exchangeRate;
-    this.setState({toAmount: toAmount});
+    // debugger;
+    this.setState({fromAmount: e.target.value}, function() {
+      var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
+      var toAmount = this.state.fromAmount * exchangeRate;
+      this.setState({toAmount: toAmount.toFixed(2)});
+    });
   },
 
   handleToAmount: function (e) {
-    this.setState({toAmount: e.target.value});
-    var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
-    var fromAmount = this.state.toAmount / exchangeRate;
-    this.setState({fromAmount: fromAmount});
+    this.setState({toAmount: e.target.value}, function() {
+      var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
+      var fromAmount = this.state.toAmount / exchangeRate;
+      this.setState({fromAmount: fromAmount.toFixed(2)});
+    });
   },
 
   handleFromCurrency: function (e) {
-    this.setState({fromCurrency: e.target.value});
-    ConversionActions.fetchRatesForBase(this.state.fromCurrency);
+    this.setState({fromCurrency: e.target.value}, function() {
+      ConversionActions.fetchRatesForBase(this.state.fromCurrency);
+    });
   },
 
   handleToCurrency: function (e) {
-    this.setState({toCurrency: e.target.value});
-    var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
-    var toAmount = this.state.fromAmount * exchangeRate;
-    this.setState({fromAmount: fromAmount});
+    this.setState({toCurrency: e.target.value}, function() {
+      var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
+      var toAmount = this.state.fromAmount * exchangeRate;
+      this.setState({toAmount: toAmount.toFixed(2)});
+    });
   },
 
   render: function () {

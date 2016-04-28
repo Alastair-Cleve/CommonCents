@@ -17,7 +17,7 @@ ConversionStore.setRatesObject = function(rates_object) {
 ConversionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case "RECEIVE_RATES_OBJECT":
-    	ConversionStore.setRatesObject(payload.rates_object);
+    	ConversionStore.setRatesObject(payload.ratesObject);
       break;
   }
   ConversionStore.__emitChange();
