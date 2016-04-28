@@ -113,7 +113,7 @@ var LoginForm = React.createClass({
               <select onChange={this.handleDefaultCurrency} defaultValue="USD">
                 {
                   currency_constants.currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}{currency}</option>)
+                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
                   })
                 }
               </select>
