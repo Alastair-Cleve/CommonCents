@@ -4,7 +4,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var ConversionUtil = {
 	fetchRatesForBase: function(base, success){
 		$.ajax({
-			url: "http://api.fixer.io/latest?base=" + base,
+			url: "https://api.fixer.io/latest?base=" + base,
 			type: "GET",
 			success: success
 		});
