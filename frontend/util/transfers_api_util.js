@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 
 var TransfersApiUtil = {
-	post: function(options){
+	createTransfer: function(options){
 		$.ajax({
 			url: options.url,
 			type: "post",
@@ -11,26 +11,14 @@ var TransfersApiUtil = {
 		});
 	},
 
-  getTransfers:
-
-  getTransfer:
-  //
-	// logout: function(success, error){
-	// 	$.ajax({
-	// 		url: '/api/session',
-	// 		method: 'delete',
-	// 		success: success,
-	// 		error: error
-	// 	});
-	// },
-	// fetchCurrentUser: function(success, error){
-	// 	$.ajax({
-	// 		url: '/api/session',
-	// 		method: 'get',
-	// 		success: success,
-	// 		error: error
-	// 	});
-	// }
+  fetchTransfers: function () {
+	  $.ajax({
+			url: options.url,
+			type: "get",
+			success: options.success,
+			error: options.error
+		});
+	}
 };
 
 module.exports = TransfersApiUtil;
