@@ -1,11 +1,11 @@
 class Transfer < ActiveRecord::Base
 
-  validates :transferor, :transferee, :amount, presence: true
+  validates :transferor_id, :transferee_id, :amount, presence: true
 
   belongs_to(
     :transferor,
     class_name: 'User',
-    foreign_key: :transferor,
+    foreign_key: :transferor_id,
     primary_key: :id
   )
 

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	has_many(
 	  :transfers,
 		class_name: 'Transfer',
-		foreign_key: :transferor,
+		foreign_key: :transferor_id,
 		primary_key: :id
 	)
 

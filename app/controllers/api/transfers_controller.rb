@@ -1,14 +1,16 @@
 class Api::TransfersController < ApplicationController
 
-  def index
-    @transfers = current_user.transfers
-    render "api/transfers"
-  end
+#Rethink controller architecture: remember that you do not have an index action.
+  # def index
+  #   @transfers = current_user.transfers
+  #   render "api/transfers"
+  # end
 
   def create
-    @transfer = User.new(transfer_params)
+    @transfer = Transfer.new(transfer_params)
     if @transfer.save
-      render "api/transfers"
+      @transfers = current_user.transfers
+      render "api/transfers/show"
     else
       @errors = @transfer.errors.full_messages
       render "api/shared/error", status: 401
@@ -16,13 +18,13 @@ class Api::TransfersController < ApplicationController
   end
 
   def show
-    @transfer = Transfer.find(:id)
+    @transfers = current_user.transfers
     render "api/transfers/show"
   end
 
   private
   def transfer_params
-    params.require(:transfer).permit(:transferor, :transferee, :amount, :currency)
+    params.require(:transfer).permit(:transferor_id, :transferee_id, :amount, :currency)
   end
 
 end
