@@ -9,4 +9,11 @@ class Transfer < ActiveRecord::Base
     primary_key: :id
   )
 
+  belongs_to(
+    :recipient,
+    class_name: 'User',
+    foreign_key: :transferee_id,
+    primary_key: :id
+  )
+
 end
