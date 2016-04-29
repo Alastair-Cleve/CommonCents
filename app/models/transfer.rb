@@ -8,5 +8,5 @@ class Transfer < ActiveRecord::Base
     foreign_key: :transferor,
     primary_key: :id
   )
-    
+
 end
