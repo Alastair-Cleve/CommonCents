@@ -92,8 +92,8 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **NB:** Rather than actually sending foreign currency, this will instead
 populate the users's transfer history.
 
-- [ ] Create transfers database table
-- [ ] Create transfers model and controller
+- [x] Create transfers database table
+- [x] Create transfers model and controller
 - [ ] Implement Flux architecture:
   - [ ] `Transfers` store
   - [ ] `_transfers` variable in `Transfers` store
@@ -104,12 +104,11 @@ populate the users's transfer history.
 
 **Objective:** Have working Navbar with Login and Signup as links to modals
 
-- [ ] Create Navbar component
-  - [ ] Use Bootstrap's Navbar
-- [ ] It should contain links to Login, Demo, and Sign Up
-  - [ ] These links have onClick event-listeners that cause the components
+- [x] Create Navbar
+- [x] It should contain links to Login, Demo, and Sign Up
+  - [x] These links have onClick event-listeners that cause the components
         to render as modals
-- [ ] Use `react-modal`
+- [x] Use `react-modal`
 
 ### Phase 5: User Dashboard (1.0 days)
 
