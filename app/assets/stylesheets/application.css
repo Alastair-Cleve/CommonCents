@@ -32,7 +32,22 @@
     background-attachment: fixed;
     background-position: top;
     background-size: 100%;
-}
+ }
+
+ #tagline {
+   display: block;
+   width: 30%;
+   padding: 20px;
+   float: left;
+   color: #49274A bold;
+   font-size: 24px;
+   /*outline: 5px outset #94618E;*/
+   margin: 20px;
+   background-color: #F4DECB;
+   opacity: 0.7;
+   /*box-shadow: 50px;*/
+   border-radius: 25px;
+ }
 
  input[type="password"],
  input[type="username"],
@@ -130,11 +145,13 @@
 
  /*Conversion Widget*/
  #conversion {
-   outline: 2px groove #F4DECB;
+   outline: 2px #F4DECB;
    margin: 20px;
    padding: 20px;
    float: right;
    background-color: #F4DECB;
+   opacity: 0.7;
+   border-radius: 25px;
  }
 
  .conversion {
@@ -145,6 +162,6 @@
  .currency {
    display: block;
    margin: 25px;
-   font-size: 56px;
+   font-size: 20px;
    width: 150px;
  }
