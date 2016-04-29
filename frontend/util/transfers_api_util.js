@@ -11,7 +11,7 @@ var TransfersApiUtil = {
 		});
 	},
 
-  fetchTransfers: function () {
+  fetchTransfers: function (options) {
 	  $.ajax({
 			url: options.url,
 			type: "get",

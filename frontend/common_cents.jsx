@@ -15,6 +15,7 @@ var CurrentUserState = require('./mixins/current_user_state');
 //Modal for Login
 var Modal = require('react-modal');
 var Header = require('./components/Header');
+var Transfers = require('./components/Transfers');
 
 var App = React.createClass({
   render: function(){

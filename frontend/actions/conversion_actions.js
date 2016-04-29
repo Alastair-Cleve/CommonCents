@@ -13,6 +13,20 @@ var ConversionActions = {
 
   fetchRatesForBase: function(base) {
     ConversionUtil.fetchRatesForBase(base, this.receiveRatesForBase);
+  },
+
+  addToAmountToTransfersStore: function(amount) {
+    AppDispatcher.dispatch({
+      actionType: ConversionConstants.RECEIVE_TO_AMOUNT,
+      amount: amount
+    })
+  },
+
+  addToCurrencyToTransfersStore: function(currency) {
+    AppDispatcher.dispatch({
+      actionType: ConversionConstants.RECEIVE_TO_CURRENCY,
+      currency: currency
+    })
   }
 };
 

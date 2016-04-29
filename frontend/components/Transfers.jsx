@@ -1,12 +1,18 @@
 var React = require("react");
 var TransfersActions = require("../actions/transfers_actions");
 var TransfersStore = require('../stores/transfers_store');
+var ConversionStore = require('../stores/conversion_store');
+var UserStore = require('../stores/user_store');
 var transfers_constants = require('../constants/transfers_constants');
+var ConversionWidget = require('./ConversionWidget');
 
-var Transfer = React.createClass({
+var Transfers = React.createClass({
   getInitialState: function () {
     return({
-      transfers = [];
+      transferor_id: 0,
+      transferee_id: 0,
+      amount: 0,
+      currency: "EUR"
     });
   },
 
@@ -19,16 +25,25 @@ var Transfer = React.createClass({
     this.setState({transfers: TransfersStore.all()})
   },
 
+  handleAmount: function (e) {
+    e.preventDefault();
+    this.setState({
+      transferor_id: UserStore.currentUser.id,
+      amount: ConversionStore.toAmount(),
+      currency: ConversionStore.toCurrency()
+     })
+  },
 
   render: function () {
     return(
-      <form>
-        <label> How much would you like to transfer?
-
+      <div className="transfer">
+        <label > How much would you like to transfer?
+          <ConversionWidget />
+          <button onClick={this.handleAmount}>Continue</button>
         </label>
-      </form>
+      </div>
     )
   }
 });
 
-module.exports = Transfer;
+module.exports = Transfers;

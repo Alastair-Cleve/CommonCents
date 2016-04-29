@@ -17,7 +17,7 @@ TransfersStore.addTransfers = function(transfers) {
   })
 };
 
-TransferStore.addTransfer = function(transfer) {
+TransfersStore.addTransfer = function(transfer) {
   _transfers[transfer.id] = transfer;
 };
 
@@ -26,14 +26,14 @@ TransfersStore.__onDispatch = function (payload) {
     case "RECEIVE_TRANSFERS":
     	TransfersStore.addTransfers(payload.transfers);
       break;
-    case "RECEIVE_TRANSFER"
+    case "RECEIVE_TRANSFER":
       TransfersStore.addTransfer(payload.transfer);
       break;
-    case "ERROR"
+    case "ERROR":
       TransfersStore.setErrors(payload.errors);
       break;
   }
-  ConversionStore.__emitChange();
+  TransfersStore.__emitChange();
 };
 
 TransfersStore.setErrors = function(errors){

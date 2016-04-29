@@ -45,6 +45,7 @@ var ConversionWidget = React.createClass({
       var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
       var fromAmount = this.state.toAmount / exchangeRate;
       this.setState({fromAmount: fromAmount.toFixed(2)});
+      ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
     });
   },
 
@@ -59,6 +60,7 @@ var ConversionWidget = React.createClass({
       var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
       var toAmount = this.state.fromAmount * exchangeRate;
       this.setState({toAmount: toAmount.toFixed(2)});
+      ConversionActions.addToCurrencyToTransfersStore(this.state.toCurrency);
     });
   },
 
