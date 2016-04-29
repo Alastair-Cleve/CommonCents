@@ -23,7 +23,7 @@ id          | integer   | not null, primary key
 transferor  | integer   | not null, foreign key (references users), indexed
 transferee  | integer   | not null, foreign key (references users), indexed
 amount      | integer   | not null
-transferee  | string    | not null
+currency    | string    | not null
 
 ## users
 column name      | data type | details
