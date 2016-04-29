@@ -11,22 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429000241) do
+ActiveRecord::Schema.define(version: 20160429184407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "transfers", force: :cascade do |t|
-    t.integer  "transferor", null: false
-    t.integer  "transferee", null: false
-    t.integer  "amount",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "currency",   null: false
+    t.integer  "transferor_id", null: false
+    t.integer  "transferee_id", null: false
+    t.integer  "amount",        null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "currency",      null: false
   end
 
-  add_index "transfers", ["transferee"], name: "index_transfers_on_transferee", using: :btree
-  add_index "transfers", ["transferor"], name: "index_transfers_on_transferor", using: :btree
+  add_index "transfers", ["transferee_id"], name: "index_transfers_on_transferee_id", using: :btree
+  add_index "transfers", ["transferor_id"], name: "index_transfers_on_transferor_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",         null: false

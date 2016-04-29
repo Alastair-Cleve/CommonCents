@@ -17,13 +17,13 @@ longitude   | integer   | not null
 latitude    | integer   | not null
 
 ## transfers
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-transferor  | integer   | not null, foreign key (references users), indexed
-transferee  | integer   | not null, foreign key (references users), indexed
-amount      | integer   | not null
-currency    | string    | not null
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+transferor_id  | integer   | not null, foreign key (references users), indexed
+transferee_id  | integer   | not null, foreign key (references users), indexed
+amount         | integer   | not null
+currency       | string    | not null
 
 ## users
 column name      | data type | details
