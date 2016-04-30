@@ -4,6 +4,9 @@ var UserStore = require('../stores/user_store');
 var AppDispatcher = require('../dispatcher/dispatcher');
 
 var UserActions = {
+	fetchUsers: function(){
+		UserApiUtil.fetchUsers(UserActions.receiveUsers, UserActions.handleError);
+	},
 	fetchCurrentUser: function(){
 		UserApiUtil.fetchCurrentUser(UserActions.receiveCurrentUser, UserActions.handleError);
 	},
@@ -25,6 +28,12 @@ var UserActions = {
 	},
 	guestLogin: function(){
 		UserActions.login({username: "guest", password: "password", default_currency: "USD"});
+	},
+	receiveUsers: function(users){
+		AppDispatcher.dispatch({
+			actionType: UserConstants.ALL_USERS,
+			users: users
+		})
 	},
 	receiveCurrentUser: function(user){
 		AppDispatcher.dispatch({

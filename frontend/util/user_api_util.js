@@ -1,6 +1,14 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 
 var UserApiUtil = {
+	fetchUsers: function(success, error){
+		$.ajax({
+			url: '/api/user',
+			type: "get",
+			success: success,
+			error: error
+		})
+	},
 	post: function(options){
 		$.ajax({
 			url: options.url,

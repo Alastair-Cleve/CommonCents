@@ -10,6 +10,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @users = User.all
+    render "api/users/index"
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :default_currency, :password)

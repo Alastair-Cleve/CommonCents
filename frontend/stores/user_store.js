@@ -3,7 +3,8 @@ var Store = require('flux/utils').Store;
 
 var UserStore = new Store(AppDispatcher);
 
-var _currentUser, _errors;
+var _currentUser, _errors; 
+var _users = [];
 
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
@@ -15,6 +16,9 @@ UserStore.__onDispatch = function (payload) {
       break;
     case "ERROR":
       UserStore.setErrors(payload.errors);
+      break;
+    case "ALL_USERS":
+      UserStore.setUsers(payload.users);
       break;
   }
   UserStore.__emitChange();
@@ -36,8 +40,16 @@ UserStore.currentUser = function(){
   }
 };
 
+UserStore.all = function(){
+  return _users.slice(0);
+};
+
 UserStore.setErrors = function(errors){
   _errors = errors;
+};
+
+UserStore.setUsers = function(users){
+  _users = users;
 };
 
 UserStore.errors = function(){

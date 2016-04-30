@@ -19,7 +19,11 @@ class Api::TransfersController < ApplicationController
 
   def show
     @transfers = current_user.transfers
-    render "api/transfers/show"
+    if @transfers
+      render "api/transfers/show"
+    else
+      render "[]"
+    end
   end
 
   private
