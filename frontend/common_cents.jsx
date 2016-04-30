@@ -35,8 +35,8 @@ var App = React.createClass({
           </nav>
         </header>
         <div id="tagline">
-          {"SEND MONEY WITH THE REAL EXCHANGE RATE. "}
-          {"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}
+          <p>{"SEND MONEY WITH THE REAL EXCHANGE RATE. "}</p>
+          <p>{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
         </div>
        <ConversionWidget/>
       </div>

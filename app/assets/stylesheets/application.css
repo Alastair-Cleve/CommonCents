@@ -27,7 +27,7 @@
  }
 
  body {
-    background-image: url("http://i.imgur.com/pasZ9H6.jpg?1");
+    background-image: url('https://images.unsplash.com/reserve/fawrXCzwSsOUMmJr9GGD_alcatraz.jpg?crop=entropy&fit=crop&fm=jpg&h=925&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1775');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
@@ -36,14 +36,16 @@
 
  #tagline {
    display: block;
-   width: 30%;
+   width: 35%;
    padding: 20px;
    float: left;
-   color: #49274A bold;
+   color: #F8EEE7;
+
    font-size: 24px;
    /*outline: 5px outset #94618E;*/
    margin: 20px;
-   background-color: #F4DECB;
+   padding-left: 40px;
+   /*background-color: #F4DECB;*/
    opacity: 0.7;
    /*box-shadow: 50px;*/
    border-radius: 25px;
@@ -146,7 +148,7 @@
  /*Conversion Widget*/
  #conversion {
    outline: 2px #F4DECB;
-   margin: 20px;
+   margin: 60px;
    padding: 20px;
    float: right;
    background-color: #F4DECB;
