@@ -48,16 +48,26 @@ var Transfers = React.createClass({
   },
 
   handleClick: function(e) {
-    this.setState({searchString: event.target.textContent});
+    this.setState({searchString: e.target.textContent});
+  },
+
+  handleConfirmation: function(e) {
+    e.preventDefault();
+
   },
 
   render: function () {
     var libraries = this.state.usersLists;
     var searchString = this.state.searchString.trim().toLowerCase();
-    if (searchString.length > 0) {
+    if (searchString.length === 0) {
+      libraries = [];
+    } else if (searchString.length > 1) {
       libraries = libraries.filter(function(el){
         return el.username.toLowerCase().match(searchString);
       });
+      if (libraries.length === 1 && libraries[0].username.toLowerCase() === searchString) {
+        libraries = [];
+      }
     }
     return(
       <div className="transfer">
@@ -76,6 +86,10 @@ var Transfers = React.createClass({
               return <li onClick={this.handleClick}>{el.username}</li>;
             }.bind(this))}
           </ul>
+        </label>
+        <label> Confirmation
+          You are transferring {this.state.amount} {this.state.currency} to {this.state.searchString}.
+          <button onClick={this.handleConfirmation}>Confirm</button>
         </label>
       </div>
     )

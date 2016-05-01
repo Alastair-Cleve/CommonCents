@@ -38,6 +38,7 @@ var App = React.createClass({
           <p>{"SEND MONEY WITH THE REAL EXCHANGE RATE. "}</p>
           <p>{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
         </div>
+        <Transfers />
        <ConversionWidget/>
       </div>
     );
