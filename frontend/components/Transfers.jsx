@@ -10,6 +10,7 @@ var ConversionWidget = require('./ConversionWidget');
 var Transfers = React.createClass({
   getInitialState: function () {
     return({
+      transfers: [],
       transferor_id: 0,
       transferee_id: 0,
       amount: 0,
@@ -21,7 +22,8 @@ var Transfers = React.createClass({
 
 	componentDidMount: function () {
     TransfersStore.addListener(this.updateTransfers);
-    UserStore.addListener(this.updateUsersList)
+    UserStore.addListener(this.updateUsersList);
+    ConversionStore.addListener(this.updateConfirmation);
     TransfersActions.fetchTransfers();
     UserActions.fetchUsers();
   },
@@ -34,13 +36,20 @@ var Transfers = React.createClass({
     this.setState({usersLists: UserStore.all()})
   },
 
+  updateConfirmation: function () {
+    this.setState({
+      amount: ConversionStore.toAmount(),
+      currency: ConversionStore.toCurrency()
+    });
+  },
+
   handleAmount: function (e) {
     e.preventDefault();
     this.setState({
       transferor_id: UserStore.currentUser.id,
       amount: ConversionStore.toAmount(),
       currency: ConversionStore.toCurrency()
-     })
+    });
   },
 
   handleChange: function(e) {

@@ -24,10 +24,11 @@ var ConversionWidget = React.createClass({
   updateRatesWidget: function () {
     var rates = ConversionStore.ratesObject();
     if (!jQuery.isEmptyObject(rates)) {
-      this.setState({ratesObject: ConversionStore.ratesObject()});
-      var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
-      var toAmount = (this.state.fromAmount * exchangeRate);
-      this.setState({toAmount: toAmount.toFixed(2)});
+      this.setState({ratesObject: ConversionStore.ratesObject()}, function() {
+        var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
+        var toAmount = (this.state.fromAmount * exchangeRate);
+        this.setState({toAmount: toAmount.toFixed(2)});
+      });
     }
   },
 
@@ -36,7 +37,9 @@ var ConversionWidget = React.createClass({
     this.setState({fromAmount: e.target.value}, function() {
       var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
       var toAmount = this.state.fromAmount * exchangeRate;
-      this.setState({toAmount: toAmount.toFixed(2)});
+      this.setState({toAmount: toAmount.toFixed(2)}, function() {
+        ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
+      });
     });
   },
 
@@ -44,12 +47,18 @@ var ConversionWidget = React.createClass({
     this.setState({toAmount: e.target.value}, function() {
       var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
       var fromAmount = this.state.toAmount / exchangeRate;
-      this.setState({fromAmount: fromAmount.toFixed(2)});
-      ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
+      this.setState({fromAmount: fromAmount.toFixed(2)}, function() {
+        ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
+      });
     });
   },
 
   handleFromCurrency: function (e) {
+    // I had to use a setTimeout here to update the toAmount in the Transfers Store
+    // because I could not pass a callback to second setState in the updateRatesWidget.
+    setTimeout(function() {
+      ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
+    }.bind(this), 500);
     this.setState({fromCurrency: e.target.value}, function() {
       ConversionActions.fetchRatesForBase(this.state.fromCurrency);
     });
@@ -59,8 +68,10 @@ var ConversionWidget = React.createClass({
     this.setState({toCurrency: e.target.value}, function() {
       var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
       var toAmount = this.state.fromAmount * exchangeRate;
-      this.setState({toAmount: toAmount.toFixed(2)});
-      ConversionActions.addToCurrencyToTransfersStore(this.state.toCurrency);
+      this.setState({toAmount: toAmount.toFixed(2)}, function() {
+        ConversionActions.addToCurrencyToTransfersStore(this.state.toCurrency);
+        ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
+      });
     });
   },
 

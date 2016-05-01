@@ -5,7 +5,7 @@ var ConversionStore = new Store(AppDispatcher);
 var _base = "";
 var _ratesObject = {};
 var _toAmount = 0;
-var _toCurrency = "USD";
+var _toCurrency = "EUR";
 
 ConversionStore.ratesObject = function() {
   return _ratesObject;

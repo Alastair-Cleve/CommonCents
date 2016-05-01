@@ -38,7 +38,6 @@ var App = React.createClass({
           <p>{"SEND MONEY WITH THE REAL EXCHANGE RATE. "}</p>
           <p>{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
         </div>
-        <Transfers />
        <ConversionWidget/>
       </div>
     );
@@ -49,8 +48,8 @@ var App = React.createClass({
 
 var Router = (
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-    </Route>
+    <Route path="/" component={App}></Route>
+    <Route path="/transfer" component={Transfers}></Route>
   </Router>
 );
 
