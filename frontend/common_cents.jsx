@@ -16,6 +16,7 @@ var CurrentUserState = require('./mixins/current_user_state');
 var Modal = require('react-modal');
 var Header = require('./components/Header');
 var Transfers = require('./components/Transfers');
+var Dashboard = require('./components/Dashboard');
 
 var App = React.createClass({
   render: function(){
@@ -49,6 +50,7 @@ var App = React.createClass({
 var Router = (
   <Router history={hashHistory}>
     <Route path="/" component={App}></Route>
+    <Route path="/dashboard" component={Dashboard}></Route>
     <Route path="/transfer" component={Transfers}></Route>
   </Router>
 );

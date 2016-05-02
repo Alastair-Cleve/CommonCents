@@ -10,7 +10,7 @@ class Api::TransfersController < ApplicationController
     @transfer = Transfer.new(transfer_params)
     if @transfer.save
       @transfers = current_user.transfers
-      render "api/transfers"
+      render "api/transfers/show"
     else
       @errors = @transfer.errors.full_messages
       render "api/shared/error", status: 401

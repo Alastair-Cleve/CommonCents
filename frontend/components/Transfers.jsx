@@ -6,6 +6,7 @@ var UserActions = require('../actions/user_actions');
 var UserStore = require('../stores/user_store');
 var transfers_constants = require('../constants/transfers_constants');
 var ConversionWidget = require('./ConversionWidget');
+var hashHistory = require('react-router').hashHistory;
 
 var Transfers = React.createClass({
   getInitialState: function () {
@@ -20,24 +21,24 @@ var Transfers = React.createClass({
     });
   },
 
-	componentDidMount: function () {
-    TransfersStore.addListener(this.updateTransfers);
+	componentWillMount: function () {
     UserStore.addListener(this.updateUsersList);
+    UserActions.fetchCurrentUser(); //This precedes fetchTransfers so that UserStore.currentUser().id in updateUsersList works properly
+    TransfersStore.addListener(this.updateTransfers);
     ConversionStore.addListener(this.updateConfirmation);
     TransfersActions.fetchTransfers();
-    UserActions.fetchCurrentUser();
     UserActions.fetchUsers();
   },
 
   updateTransfers: function () {
-    this.setState({
-      transferor_id: UserStore.currentUser().id,
-      transfers: TransfersStore.all()
-    })
+    this.setState({transfers: TransfersStore.all()});
   },
 
   updateUsersList: function () {
-    this.setState({usersLists: UserStore.all()})
+    this.setState({
+      transferor_id: UserStore.currentUser().id,
+      usersLists: UserStore.all()
+    });
   },
 
   updateConfirmation: function () {
@@ -65,13 +66,14 @@ var Transfers = React.createClass({
 
   handleConfirmation: function(e) {
     e.preventDefault();
-    this.setState({transferee_id: this.state.usersLists[0].id}, function() {
+    this.setState({transferee_id: UserStore.find_by_username(this.state.searchString).id}, function() {
       TransfersActions.createTransfer({
         transferor_id: this.state.transferor_id,
         transferee_id: this.state.transferee_id,
         amount: this.state.amount,
         currency: this.state.currency
       });
+      hashHistory.push('/dashboard');
     });
   },
 

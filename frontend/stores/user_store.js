@@ -3,7 +3,7 @@ var Store = require('flux/utils').Store;
 
 var UserStore = new Store(AppDispatcher);
 
-var _currentUser, _errors; 
+var _currentUser, _errors;
 var _users = [];
 
 UserStore.__onDispatch = function (payload) {
@@ -42,6 +42,15 @@ UserStore.currentUser = function(){
 
 UserStore.all = function(){
   return _users.slice(0);
+};
+
+UserStore.find_by_username = function(name){
+  var keys = Object.keys(_users);
+  for (var i = 1; i < keys.length; i++) {
+    if (_users[i].username === name) {
+      return _users[i];
+    }
+  }
 };
 
 UserStore.setErrors = function(errors){
