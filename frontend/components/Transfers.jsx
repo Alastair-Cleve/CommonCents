@@ -25,11 +25,15 @@ var Transfers = React.createClass({
     UserStore.addListener(this.updateUsersList);
     ConversionStore.addListener(this.updateConfirmation);
     TransfersActions.fetchTransfers();
+    UserActions.fetchCurrentUser();
     UserActions.fetchUsers();
   },
 
   updateTransfers: function () {
-    this.setState({transfers: TransfersStore.all()})
+    this.setState({
+      transferor_id: UserStore.currentUser().id,
+      transfers: TransfersStore.all()
+    })
   },
 
   updateUsersList: function () {
@@ -46,7 +50,6 @@ var Transfers = React.createClass({
   handleAmount: function (e) {
     e.preventDefault();
     this.setState({
-      transferor_id: UserStore.currentUser.id,
       amount: ConversionStore.toAmount(),
       currency: ConversionStore.toCurrency()
     });
@@ -62,7 +65,14 @@ var Transfers = React.createClass({
 
   handleConfirmation: function(e) {
     e.preventDefault();
-
+    this.setState({transferee_id: this.state.usersLists[0].id}, function() {
+      TransfersActions.createTransfer({
+        transferor_id: this.state.transferor_id,
+        transferee_id: this.state.transferee_id,
+        amount: this.state.amount,
+        currency: this.state.currency
+      });
+    });
   },
 
   render: function () {
