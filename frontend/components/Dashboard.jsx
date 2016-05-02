@@ -16,10 +16,15 @@ var Dashboard = React.createClass({
   },
 
 	componentDidMount: function () {
-    TransfersStore.addListener(this.updateTransfers);
-    UserStore.addListener(this.updateUser);
+    this.transferListener = TransfersStore.addListener(this.updateTransfers);
+    this.userListener = UserStore.addListener(this.updateUser);
     TransfersActions.fetchTransfers();
     UserActions.fetchCurrentUser();
+  },
+
+  componentWillUnmount: function () {
+    this.transferListener.remove();
+    this.userListener.remove();
   },
 
   updateTransfers: function () {
@@ -59,17 +64,19 @@ var Dashboard = React.createClass({
           </nav>
         </header>
 
-        <h1 className="dashboard">Welcome to your dashboard!</h1>
-        <p>
+        <h1 className="dashboard">Welcome to your dashboard!</h1><br/>
+
           <table className="dashboard">
-            <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
-            {
-              this.state.transfers.reverse().map(function(transfer) {
-                return(<tr><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
-              })
-            }
+            <tbody>
+              <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
+              {
+                this.state.transfers.reverse().map(function(transfer) {
+                  return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+                })
+              }
+            </tbody>
           </table>
-        </p>
+
         <button onClick={this.handleTransfer}>Make a Transfer</button>
       </div>
     );

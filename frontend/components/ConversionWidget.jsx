@@ -17,8 +17,12 @@ var ConversionWidget = React.createClass({
   },
 
 	componentDidMount: function () {
-    ConversionStore.addListener(this.updateRatesWidget);
+    this.listener = ConversionStore.addListener(this.updateRatesWidget);
     ConversionActions.fetchRatesForBase(this.state.fromCurrency);
+  },
+
+  componentWillUnmount: function () {
+    this.listener.remove();
   },
 
   updateRatesWidget: function () {

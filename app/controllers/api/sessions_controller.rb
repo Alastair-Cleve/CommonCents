@@ -27,7 +27,7 @@ class Api::SessionsController < ApplicationController
       render "api/users/show"
     else
       @errors = nil
-      render "api/shared/error", status: 404 #see componentDidMount
+      render "api/shared/error", status: 404 #see componentDidMount - Note: I have to leave this in; otherwise, the dashboard does not work
     end
   end
 end

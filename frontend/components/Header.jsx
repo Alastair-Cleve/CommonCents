@@ -15,10 +15,13 @@ var Header = React.createClass({
              salutation: ""});
   },
   componentDidMount: function(){
-    UserStore.addListener(this.updateUser);
+    this.listener = UserStore.addListener(this.updateUser);
     if (typeof UserStore.currentUser() === 'undefined') {
       UserActions.fetchCurrentUser();
     }
+  },
+  componentWillUnmount: function () {
+    this.listener.remove();
   },
   updateUser: function(){
     this.setState({

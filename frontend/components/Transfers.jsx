@@ -22,12 +22,18 @@ var Transfers = React.createClass({
   },
 
 	componentWillMount: function () {
-    UserStore.addListener(this.updateUsersList);
+    this.userListener = UserStore.addListener(this.updateUsersList);
     UserActions.fetchCurrentUser(); //This precedes fetchTransfers so that UserStore.currentUser().id in updateUsersList works properly
-    TransfersStore.addListener(this.updateTransfers);
-    ConversionStore.addListener(this.updateConfirmation);
+    this.transferListener = TransfersStore.addListener(this.updateTransfers);
+    this.conversionListener = ConversionStore.addListener(this.updateConfirmation);
     TransfersActions.fetchTransfers();
     UserActions.fetchUsers();
+  },
+
+  componentWillUnmount: function () {
+    this.userListener.remove();
+    this.transferListener.remove();
+    this.conversionListener.remove();
   },
 
   updateTransfers: function () {
@@ -104,7 +110,7 @@ var Transfers = React.createClass({
           </input>
           <ul>
             {libraries.map(function(el){
-              return <li onClick={this.handleClick}>{el.username}</li>;
+              return <li key={el.id} onClick={this.handleClick}>{el.username}</li>;
             }.bind(this))}
           </ul>
         </label>
