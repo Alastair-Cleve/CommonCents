@@ -14,7 +14,7 @@ var Transfers = React.createClass({
       transfers: [],
       transferor_id: 0,
       transferee_id: 0,
-      amount: 0,
+      amount: 0.0,
       currency: "EUR",
       searchString: "",
       usersLists: []
@@ -76,7 +76,7 @@ var Transfers = React.createClass({
       TransfersActions.createTransfer({
         transferor_id: this.state.transferor_id,
         transferee_id: this.state.transferee_id,
-        amount: this.state.amount,
+        amount: parseFloat(this.state.amount),
         currency: this.state.currency
       });
       hashHistory.push('/dashboard');

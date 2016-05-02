@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429184407) do
+ActiveRecord::Schema.define(version: 20160502171000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160429184407) do
   create_table "transfers", force: :cascade do |t|
     t.integer  "transferor_id", null: false
     t.integer  "transferee_id", null: false
-    t.integer  "amount",        null: false
+    t.float    "amount",        null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "currency",      null: false
