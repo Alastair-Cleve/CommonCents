@@ -168,20 +168,25 @@
    width: 150px;
  }
 
+ div.transfer {
+  display: block;
+  background-color: #F8EEE7;
+  border-radius: 25px;
+  padding: 20px;
+  width: 50%;
+  margin: 20px;
+ }
+
  .transfer {
    color: #F8EEE7
  }
 
- /*.transfer {
+ .transfer {
    display: block;
-   clear: left;
- }*/
+   float: left;
+   color: #49274A;
+ }
 
- /*.transfer > .conversion {
-   clear: left;
-   float: none;
- }*/
-
-  .dashboard {
-    color: #F8EEE7;
-  }
+ .dashboard {
+   color: #F8EEE7;
+ }

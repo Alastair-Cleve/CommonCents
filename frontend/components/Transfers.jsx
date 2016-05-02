@@ -97,13 +97,13 @@ var Transfers = React.createClass({
       }
     }
     return(
-      <div className="transfer">
+      <div className="transfer" >
         <label> How much would you like to transfer?
-          <ConversionWidget />
+          <ConversionWidget className="transfer"/>
           <button onClick={this.handleAmount}>Continue</button>
-        </label>
+        </label><br/><br />
         <label> Who is receiving this transfer?
-          <input type="text"
+          <br/><input type="text"
                  onChange={this.handleChange}
                  value={this.state.searchString}
                  placeholder="Search for other users">
@@ -116,7 +116,7 @@ var Transfers = React.createClass({
         </label>
         <label> Confirmation
           You are transferring {this.state.amount} {this.state.currency} to {this.state.searchString}.
-          <button onClick={this.handleConfirmation}>Confirm</button>
+          <br /><button onClick={this.handleConfirmation}>Confirm</button>
         </label>
       </div>
     )
