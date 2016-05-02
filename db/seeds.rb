@@ -23,7 +23,7 @@ end
 
 5.times do
   Transfer.create!(transferor_id: 1,
-                   transferee_id: (1..25).to_a.sample),
+                   transferee_id: (1..25).to_a.sample,
                    amount: rand(1000..5000) + rand(),
                    currency: currencies.sample)
 end
