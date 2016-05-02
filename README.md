@@ -94,11 +94,11 @@ populate the users's transfer history.
 
 - [x] Create transfers database table
 - [x] Create transfers model and controller
-- [ ] Implement Flux architecture:
-  - [ ] `Transfers` store
-  - [ ] `_transfers` variable in `Transfers` store
-- [ ] Set up as a single long page first and then implement bread crumb
-      architecture later
+- [x] Implement Flux architecture:
+  - [x] `Transfers` store
+  - [x] `_transfers` variable in `Transfers` store
+- [x] Set up as a single long page first
+  - [ ] **Bonus!** Implement bread crumb architecture later
 
 ### Phase 4: Create Navbar(1.0 days)
 
@@ -114,14 +114,13 @@ populate the users's transfer history.
 
 **Objective:** Have a functioning user dashboard
 
-- [ ] Implement `TransactionHistory` component
-  - [ ] This will be a list of FOREX transactions that the user has made organized
+- [x] Show user's transaction history on their dashboard
+  - [x] This will be a list of FOREX transactions that the user has made organized
         by the date of the transaction
-  - [ ] FLUX architecture will involve `GET /api/transfers` & `POST /api/transfers`
-  - [ ] There will be a `Transfers` Store
-  - [ ] `TransactionHistory` listens to the `Transfers` Store
-- [ ] Nest the currency conversion widget into the component so that additional
-      transfers can be made
+  - [x] FLUX architecture will involve `GET /api/transfers` & `POST /api/transfers`
+  - [x] There will be a `Transfers` Store
+  - [x] `Dashboard` listens to the `Transfers` Store
+- [x] Provide a link to the currency transfer process
 
 ### Phase 6: Additional CSS styling (1.0 days + all weekend if necessary)
 
