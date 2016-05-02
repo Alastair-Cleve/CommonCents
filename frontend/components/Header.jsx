@@ -4,6 +4,7 @@ var style = require('../../app/assets/stylesheets/Header.js');
 var LoginForm = require('./LoginForm');
 var UserStore = require('../stores/user_store');
 var UserActions = require('../actions/user_actions');
+var hashHistory = require('react-router').hashHistory;
 
 var Header = React.createClass({
   getInitialState: function(){
@@ -25,9 +26,12 @@ var Header = React.createClass({
       userErrors: UserStore.errors()
     }, function() {
       if (this.state.currentUser) {
-        this.setState({label: "Log Out",
-                       salutation: "Hello, " + this.state.currentUser.username + "! ",
-                       modalOpen: false})
+        this.setState(
+          {label: "Log Out",
+           salutation: "Hello, " + this.state.currentUser.username + "! ",
+           modalOpen: false}, function() {
+             hashHistory.push('/dashboard');
+           })
       } else {
         this.setState({label: "Log In / Sign In", salutation: ""})
       }

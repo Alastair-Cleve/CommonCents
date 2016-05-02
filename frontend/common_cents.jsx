@@ -10,13 +10,13 @@ var hashHistory = ReactRouter.hashHistory;
 //Components
 var LoginForm = require('./components/LoginForm');
 var ConversionWidget = require('./components/ConversionWidget');
+var Header = require('./components/Header');
+var Transfers = require('./components/Transfers');
+var Dashboard = require('./components/Dashboard');
 //Mixins - Temporarily Unused - Refactor
 var CurrentUserState = require('./mixins/current_user_state');
 //Modal for Login
 var Modal = require('react-modal');
-var Header = require('./components/Header');
-var Transfers = require('./components/Transfers');
-var Dashboard = require('./components/Dashboard');
 
 var App = React.createClass({
   render: function(){

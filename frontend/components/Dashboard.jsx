@@ -1,83 +1,76 @@
 var React = require("react");
-// var UserActions = require('../actions/user_actions');
-// var UserStore = require('../stores/user_store');
 var TransfersActions = require('../actions/transfers_actions');
 var TransfersStore = require('../stores/transfers_store');
+var hashHistory = require('react-router').hashHistory;
+var UserActions = require('../actions/user_actions');
+var UserStore = require('../stores/user_store');
+
 
 var Dashboard = React.createClass({
   getInitialState: function () {
     return({
       transfers: [],
+      currentUser: UserStore.currentUser(),
+      userErrors: UserStore.errors()
     });
   },
 
 	componentDidMount: function () {
-    // UserStore.addListener(this.updateUsersList);
-    // UserActions.fetchCurrentUser(); //This precedes fetchTransfers so that UserStore.currentUser().id in updateUsersList works properly
     TransfersStore.addListener(this.updateTransfers);
+    UserStore.addListener(this.updateUser);
     TransfersActions.fetchTransfers();
-    // UserActions.fetchUsers();
+    UserActions.fetchCurrentUser();
   },
-
-///here
 
   updateTransfers: function () {
     this.setState({transfers: TransfersStore.all()});
   },
 
-  // updateUsersList: function () {
-  //   this.setState({
-  //     transferor_id: UserStore.currentUser().id,
-  //     usersLists: UserStore.all()
-  //   });
-  // },
-  //
-  // updateConfirmation: function () {
-  //   this.setState({
-  //     amount: ConversionStore.toAmount(),
-  //     currency: ConversionStore.toCurrency()
-  //   });
-  // },
-  //
-  // handleAmount: function (e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     amount: ConversionStore.toAmount(),
-  //     currency: ConversionStore.toCurrency()
-  //   });
-  // },
-  //
-  // handleChange: function(e) {
-  //   this.setState({searchString: e.target.value});
-  // },
-  //
-  // handleClick: function(e) {
-  //   this.setState({searchString: e.target.textContent});
-  // },
-  //
-  // handleConfirmation: function(e) {
-  //   e.preventDefault();
-  //   this.setState({transferee_id: UserStore.find_by_username(this.state.searchString).id}, function() {
-  //     TransfersActions.createTransfer({
-  //       transferor_id: this.state.transferor_id,
-  //       transferee_id: this.state.transferee_id,
-  //       amount: this.state.amount,
-  //       currency: this.state.currency
-  //     });
-  //   });
-  // },
+  updateUser: function(){
+    this.setState({
+      currentUser: UserStore.currentUser(),
+      userErrors: UserStore.errors()
+    });
+  },
+
+  handleTransfer: function () {
+    hashHistory.push('/transfer');
+  },
+
+  handleLogOut: function () {
+    UserActions.logout();
+    hashHistory.push('/');
+  },
 
   render: function () {
     return(
-      <div><h1 className="dashboard">Your Dashboard</h1>
-        <table className="dashboard">
-          <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
-          {
-            this.state.transfers.map(function(transfer) {
-              return(<tr><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
-            })
-          }
-        </table>
+      <div>
+        <header className="header">
+          <nav className="header-nav group">
+
+            <h1 className="header-logo">
+              <a href="#">Common&#xFFE0;ents</a>
+            </h1>
+
+            <ul className="header-list group">
+              <li><div id="login" onClick={this.handleLogOut}>Log Out</div></li>
+            </ul>
+
+          </nav>
+        </header>
+
+        <h1 className="dashboard">Welcome to your dashboard!</h1>
+        <p>
+          <table className="dashboard">
+            <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
+            {
+              this.state.transfers.reverse().map(function(transfer) {
+                return(<tr><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+              })
+            }
+          </table>
+        </p>
+        <button onClick={this.handleTransfer}>Make a Transfer</button>
       </div>
     );
   }
