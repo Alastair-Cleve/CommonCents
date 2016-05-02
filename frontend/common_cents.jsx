@@ -13,6 +13,7 @@ var ConversionWidget = require('./components/ConversionWidget');
 var Header = require('./components/Header');
 var Transfers = require('./components/Transfers');
 var Dashboard = require('./components/Dashboard');
+var Chart = require('./components/Chart');
 //Mixins - Temporarily Unused - Refactor
 var CurrentUserState = require('./mixins/current_user_state');
 //Modal for Login
@@ -40,6 +41,7 @@ var App = React.createClass({
           <p>{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
         </div>
        <ConversionWidget/>
+       <Chart/>
       </div>
     );
   }
