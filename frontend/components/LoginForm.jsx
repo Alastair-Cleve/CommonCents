@@ -102,67 +102,73 @@ var LoginForm = React.createClass({
 		}
     if (this.state.show_currency) {
       return(
-				<form>
-					<section>
-						<div className="center">
-              <label> Username:
-  							<input type="text" onChange={this.handleUsername}/>
-  						</label>
-						</div>
+        <div className="center">
+  				<form>
+            <h1><p>Create a free account!</p></h1>
+  					<section>
+  						<div className="center">
+                <label> Username:
+    							<input type="text" onChange={this.handleUsername}/>
+    						</label>
+  						</div>
 
-            <div className="center">
-              <label> Password:
-							  <input type="password" onChange={this.handlePassword}/>
-						  </label>
-						</div><br/>
+              <div className="center">
+                <label> Password:
+  							  <input type="password" onChange={this.handlePassword}/>
+  						  </label>
+  						</div><br/>
 
-            <div className="center">
-              <label> Default Currency:
-                <select className="currency act-creation" onChange={this.handleDefaultCurrency} defaultValue="USD">
-                  {
-                    currency_constants.currencies.map(function(currency, idx) {
-                      return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
-                    })
-                  }
-                </select>
-              </label>
-            </div>
-					</section><br/>
+              <div className="center">
+                <label> Default Currency:
+                  <select className="currency act-creation" onChange={this.handleDefaultCurrency} defaultValue="USD">
+                    {
+                      currency_constants.currencies.map(function(currency, idx) {
+                        return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
+                      })
+                    }
+                  </select>
+                </label>
+              </div>
+  					</section><br/>
 
-					<section>
-            <button className="btn" onClick={this.setForm} value="login">Login</button>
-            <button className="btn" onClick={this.setForm} value="signup">Sign Up</button>
-					</section><br/>
+  					<section>
+              <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
+              <input type="radio" name="intro" onClick={this.setForm} value="signup" />Signup
+  					</section><br/>
 
-					<input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
-          <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
-				</form>
+  					<input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
+            <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
+  				</form>
+        </div>
       )
     } else {
        return(
-        <form>
-          <section>
-            <div className="center">
-              <label> Username:
-                <input type="text" onChange={this.handleUsername}/>
-              </label>
-            </div>
+        <div className="center">
+          <form>
+            <h1><p>Welcome back!</p></h1>
+            <section>
+              <div className="center">
+                <label> Username:
+                  <input type="text" onChange={this.handleUsername}/>
+                </label>
+              </div>
 
-            <div className="center">
-              <label> Password:
-                <input type="password" onChange={this.handlePassword}/>
-              </label>
-            </div>
-          </section><br />
+              <div className="center">
+                <label> Password:
+                  <input type="password" onChange={this.handlePassword}/>
+                </label>
+              </div>
+            </section><br />
 
-          <section>
-            <button className="btn" onClick={this.setForm} value="login">Login</button>
-            <button className="btn" onClick={this.setForm} value="signup">Sign Up</button>
-					</section><br/>
+            <section>
+              <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
+              <input type="radio" name="intro" onClick={this.setForm} value="signup" />Signup
+  					</section><br/>
 
-          <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
-          <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
-        </form>
+            <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
+            <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
+          </form>
+        </div>
       )
     }
 	},
