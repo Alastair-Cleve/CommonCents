@@ -63,19 +63,19 @@ var Dashboard = React.createClass({
         </header>
 
         <div className="center">
-          <h1 className="dashboard">Welcome to your dashboard!</h1><br/>
-
-            <table className="dashboard">
-              <tbody>
-                <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
-                {
-                  this.state.transfers.reverse().map(function(transfer) {
-                    return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
-                  })
-                }
-              </tbody>
-            </table>
-
+          <div className="dashboard">
+            <h1>Welcome to your dashboard!</h1><br/>
+              <table className="center">
+                <tbody>
+                  <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
+                  {
+                    this.state.transfers.reverse().map(function(transfer) {
+                      return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+                    })
+                  }
+                </tbody>
+              </table>
+          </div>
           <button onClick={this.handleTransfer}>Make a Transfer</button>
         </div>
       </div>
