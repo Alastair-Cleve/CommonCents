@@ -51,11 +51,9 @@ var Dashboard = React.createClass({
     return(
       <div>
         <header className="header">
-          <nav className="header-nav group">
+          <nav className="header-nav center group">
 
-            <h1 className="header-logo">
-              <a href="#">Common&#xFFE0;ents</a>
-            </h1>
+            <a className="header-logo" href="#">Common&#xFFE0;ents</a>
 
             <ul className="header-list group">
               <li><div id="login" onClick={this.handleLogOut}>Log Out</div></li>
@@ -64,20 +62,22 @@ var Dashboard = React.createClass({
           </nav>
         </header>
 
-        <h1 className="dashboard">Welcome to your dashboard!</h1><br/>
+        <div className="center">
+          <h1 className="dashboard">Welcome to your dashboard!</h1><br/>
 
-          <table className="dashboard">
-            <tbody>
-              <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
-              {
-                this.state.transfers.reverse().map(function(transfer) {
-                  return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
-                })
-              }
-            </tbody>
-          </table>
+            <table className="dashboard">
+              <tbody>
+                <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
+                {
+                  this.state.transfers.reverse().map(function(transfer) {
+                    return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+                  })
+                }
+              </tbody>
+            </table>
 
-        <button onClick={this.handleTransfer}>Make a Transfer</button>
+          <button onClick={this.handleTransfer}>Make a Transfer</button>
+        </div>
       </div>
     );
   }
