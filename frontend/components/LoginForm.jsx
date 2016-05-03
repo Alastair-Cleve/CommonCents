@@ -121,12 +121,12 @@ var LoginForm = React.createClass({
                 }
               </select>
             </label>
-					</section>
+					</section><br/>
 
 					<section>
             <button className="btn" onClick={this.setForm} value="login">Login</button>
             <button className="btn" onClick={this.setForm} value="signup">Sign Up</button>
-					</section>
+					</section><br/>
 
 					<input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
           <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
@@ -143,12 +143,12 @@ var LoginForm = React.createClass({
             <label> Password:
               <input type="password" onChange={this.handlePassword}/>
             </label>
-          </section>
+          </section><br />
 
           <section>
             <button className="btn" onClick={this.setForm} value="login">Login</button>
             <button className="btn" onClick={this.setForm} value="signup">Sign Up</button>
-					</section>
+					</section><br/>
 
           <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
           <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>

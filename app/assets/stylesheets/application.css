@@ -98,7 +98,11 @@ width: 80%;
   line-height: 24px;
   border-radius: 3px;
   min-height: 48px;
-  background: purple;
+  background: #94618E;
+}
+
+.btn.submit-btn {
+  background: #F4DECB
 }
 
 /* Clearfix */
@@ -201,16 +205,17 @@ clear: both;
 }
 
 .currency-drop-downs > currency {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .currency-drop-downs:last-child {
-    margin-top: 50px;
+  margin-top: -18px;
 }
 
 .currency {
  display: block;
  margin: 25px;
+ margin-top: 46px;
  font-size: 20px;
  width: 150px;
 }
@@ -244,4 +249,9 @@ canvas {
   background-color: #F4DECB;
   border-radius: 10px;
   display: block;
+}
+
+/*Login Modal*/
+.modal {
+  background-color: #F8EEE7;
 }

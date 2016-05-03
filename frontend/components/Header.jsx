@@ -61,7 +61,7 @@ var Header = React.createClass({
       <div>
         {this.state.salutation}
         <div id="login" onClick={this._handleClick}>{this.state.label}</div>
-        <Modal
+        <Modal className="modal"
           isOpen={this.state.modalOpen}
           onRequestClose={this.onModalClose}
           style={style}
