@@ -1,201 +1,247 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 
- /* Reset */
- body, div, header, footer, section, h1,
- h2, h3, h4, h5, h6 {
-   margin: 0;
-   padding: 0;
+/* Reset */
+body, div, header, footer, section, h1,
+h2, h3, h4, h5, h6, ul, li, p {
+ margin: 0;
+ padding: 0;
+ list-style: none;
+}
 
- }
+body {
+ font-size: 16px;
+ font-weight: 400;
+ background: #94618E;
+}
 
- ul {
-   list-style: none;
- }
+body * {
+  font-family: "Roboto", sans-serif;
+}
 
- body {
-    background: #94618E url('https://i.imgur.com/7lXOFIj.jpg?1');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: top;
-    background-size: 100%;
- }
+input[type="password"],
+input[type="username"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+}
 
- #tagline {
-   display: block;
-   width: 35%;
-   padding: 20px;
-   float: left;
-   color: #F8EEE7;
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
 
-   font-size: 24px;
-   /*outline: 5px outset #94618E;*/
-   margin: 20px;
-   padding-left: 40px;
-   /*background-color: #F4DECB;*/
-   opacity: 0.7;
-   /*box-shadow: 50px;*/
-   border-radius: 25px;
- }
+form input[type="text"],
+form input[type="password"] {
+  display: inline-block;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid silver;
+  padding-left: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  background: white;
+}
 
- input[type="password"],
- input[type="username"],
- input[type="text"],
- input[type="submit"],
- textarea,
- button {
-   /*
-   Get rid of native styling. Read more here:
-   http://css-tricks.com/almanac/properties/a/appearance/
-   */
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   font-size: 12px;
-   cursor: pointer;
- }
-
- button,
- input[type="submit"] {
-   cursor: pointer;
- }
+form select {
+  display: inline-block;
+  height: 44px;
+  background: #fff;
+}
 
 
- #login {
-    background-color: #49274A;
-    padding: 0;
-    border: 0;
-    color: #F8EEE7;
-    font: 16px Roboto;
-    font-weight: 400;
-  }
+/* common classes */
+.center {
+margin: 0 auto;
+width: 80%;
+}
 
-  #login:hover {
-    background-color: #94618E;
-  }
+.btn,
+.btn.submit-btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 10.5px 24px 11.5px 24px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  min-height: 48px;
+  background: purple;
+}
 
-  /* Clearfix */
+/* Clearfix */
 
-  .group:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
+.group:after {
+content: "";
+display: block;
+clear: both;
+}
 
-  /* Header */
+/*****************/
 
- body {
-   font-family: "Roboto", sans-serif;
-   font-size: 16px;
-   font-weight: 400;
-   /*background: #F8EEE7;*/
- }
+/* START NAV BAR */
 
- .header {
-   background: #49274A;
-   color: #fff;
-   border-bottom: 1px solid #F4DECB;
- }
 
- .header a {
-   display: block;
-   padding: 10px 20px;
-   text-decoration: none;
-   color: #F8EEE7;
- }
+#login {
+  background-color: #49274A;
+  padding: 0;
+  border: 0;
+  color: #F8EEE7;
+  font-weight: 400;
+}
 
- .header-nav {
-   margin: 0 auto;
-   width: 80%;
-   /*border-left: 1px solid #ccc;
-   border-right: 1px solid #ccc;*/
- }
+#login:hover {
+  background-color: #94618E;
+}
 
- .header-logo {
-   float: left;
-   font-weight: 700;
- }
+/* Header */
+.header {
+ background: #49274A;
+ color: #fff;
+ border-bottom: 1px solid #F4DECB;
+}
 
- .header-logo:hover {
-   background: #94618E;
- }
+.header-nav {
+ height: 50px;
+ line-height: 50px;
+}
 
- .header-list {
-   float: right;
- }
+.header-logo {
+ float: left;
+ font-weight: 700;
+ font-size: 26px;
+ display: block;
+ text-decoration: none;
+ color: #F8EEE7;
+}
 
- .header-list > li {
-   float: left;
-   /*border-left: 1px solid #ccc;*/
- }
+.header-logo:hover {
+ background: #94618E;
+}
 
- /*.header-list > li:hover {
-   background: #000;
- }*/
+.header-list {
+  float: right;
+}
 
- /*Conversion Widget*/
- #conversion {
-   outline: 2px #F4DECB;
-   margin: 60px;
-   padding: 20px;
-   float: right;
-   background-color: #F4DECB;
-   opacity: 1.0;
-   border-radius: 25px;
- }
+.header-list:hover {
+  cursor: pointer;
+}
 
- .conversion {
-   float: left;
-   width: 200px;
- }
+/* START TAG LINE / CONVERSION WIDGET */
+.image-div {
+  background: #94618E url('https://i.imgur.com/7lXOFIj.jpg?1');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  min-height: 500px;
+}
 
- .currency {
-   display: block;
-   margin: 25px;
-   font-size: 20px;
-   width: 150px;
- }
+.content-section {
+    margin-top: 5%;
+}
 
- div.transfer {
-  display: block;
-  background-color: #F8EEE7;
-  border-radius: 25px;
+.tagline {
+ display: inline-block;
+ width: 35%;
+ color: #F8EEE7;
+ font-size: 24px;
+ opacity: 0.7;
+}
+
+.sub-header {
+  margin-top: 20px;
+}
+
+/*Conversion Widget*/
+
+#conversion {
+ outline: 2px #F4DECB;
+ padding: 20px;
+ float: right;
+ background-color: #F4DECB;
+ opacity: 1.0;
+ border-radius: 10px;
+}
+
+.conversion {
+ float: left;
+ width: 200px;
+}
+
+.currency-drop-downs > currency {
+    margin-top: 30px;
+}
+
+.currency-drop-downs:last-child {
+    margin-top: 50px;
+}
+
+.currency {
+ display: block;
+ margin: 25px;
+ font-size: 20px;
+ width: 150px;
+}
+
+div.transfer {
+display: block;
+background-color: #F8EEE7;
+border-radius: 25px;
+padding: 20px;
+width: 50%;
+margin: 20px;
+}
+
+.transfer {
+ color: #F8EEE7
+}
+
+.transfer {
+ display: block;
+ float: left;
+ color: #49274A;
+}
+
+.dashboard {
+ color: #F8EEE7;
+}
+
+canvas {
+  margin: 30px auto 10px auto;
   padding: 20px;
-  width: 50%;
-  margin: 20px;
- }
-
- .transfer {
-   color: #F8EEE7
- }
-
- .transfer {
-   display: block;
-   float: left;
-   color: #49274A;
- }
-
- .dashboard {
-   color: #F8EEE7;
- }
-
-  canvas {
-    display: block;
-    float: right;
-    margin: 0px 60px 20px 20px;
-    padding: 20px;
-    background-color: #F4DECB;
-    border-radius: 25px;
-  }
+  background-color: #F4DECB;
+  border-radius: 10px;
+  display: block;
+}

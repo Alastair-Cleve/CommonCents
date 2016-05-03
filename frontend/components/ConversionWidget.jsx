@@ -92,7 +92,7 @@ var ConversionWidget = React.createClass({
             </label>
           </section>
 
-          <section className="conversion">
+          <section className="conversion currency-drop-downs">
 
               <select className="currency" onChange={this.handleFromCurrency} value={this.state.fromCurrency}>
                 {

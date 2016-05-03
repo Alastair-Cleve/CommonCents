@@ -124,12 +124,12 @@ var LoginForm = React.createClass({
 					</section>
 
 					<section>
-            <button onClick={this.setForm} value="login">Login</button>
-            <button onClick={this.setForm} value="signup">Sign Up</button>
+            <button className="btn" onClick={this.setForm} value="login">Login</button>
+            <button className="btn" onClick={this.setForm} value="signup">Sign Up</button>
 					</section>
 
-					<input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
-          <input readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
+					<input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
+          <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
 				</form>
       )
     } else {
@@ -146,12 +146,12 @@ var LoginForm = React.createClass({
           </section>
 
           <section>
-            <button onClick={this.setForm} value="login">Login</button>
-            <button onClick={this.setForm} value="signup">Sign Up</button>
+            <button className="btn" onClick={this.setForm} value="login">Login</button>
+            <button className="btn" onClick={this.setForm} value="signup">Sign Up</button>
 					</section>
 
-          <input readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
-          <input readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
+          <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
+          <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
         </form>
       )
     }

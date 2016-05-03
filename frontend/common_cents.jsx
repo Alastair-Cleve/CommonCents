@@ -23,26 +23,32 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
-        <header className="header">
-          <nav className="header-nav group">
+        <div className="image-div group">
+          <header className="header">
+            <nav className="header-nav center group">
 
-            <h1 className="header-logo">
-              <a href="#">Common&#xFFE0;ents</a>
-            </h1>
+              <a className="header-logo" href="#">Common&#xFFE0;ents</a>
 
-            <ul className="header-list group">
-              <li><Header /></li>
-            </ul>
+              <ul className="header-list group">
+                <li><Header /></li>
+              </ul>
 
-          </nav>
-        </header>
-        <div id="tagline">
-          <p>{"SEND MONEY WITH THE REAL EXCHANGE RATE. "}</p>
-          <p>{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
+            </nav>
+          </header>
+          <div className="center group content-section">
+            <div className="tagline">
+              <p>{"SEND MONEY WITH THE REAL EXCHANGE RATE. "}</p>
+              <p className="sub-header">{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
+            </div>
+            <ConversionWidget/>
+          </div>
         </div>
-       <ConversionWidget/>
-       <Chart/>
+
+        <div className="center group">
+          <Chart/>
+        </div>
       </div>
+
     );
   }
 });
