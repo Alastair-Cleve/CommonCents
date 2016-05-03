@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.5.0",
     "chart.js": "^1.1.1",
     "flux": "^2.1.1",
+    "moment": "^2.13.0",
     "react": "^15.0.1",
     "react-chartjs": "^0.7.3",
     "react-dom": "^15.0.1",
