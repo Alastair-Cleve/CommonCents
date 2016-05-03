@@ -224,6 +224,11 @@ clear: both;
  width: 150px;
 }
 
+.currency.act-creation {
+  margin: 0px;
+  display: inline-block;
+}
+
 div.transfer {
 display: block;
 background-color: #F8EEE7;

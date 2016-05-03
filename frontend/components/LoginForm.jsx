@@ -104,23 +104,29 @@ var LoginForm = React.createClass({
       return(
 				<form>
 					<section>
-						<label> Username:
-							<input type="text" onChange={this.handleUsername}/>
-						</label>
+						<div className="center">
+              <label> Username:
+  							<input type="text" onChange={this.handleUsername}/>
+  						</label>
+						</div>
 
-						<label> Password:
-							<input type="password" onChange={this.handlePassword}/>
-						</label>
+            <div className="center">
+              <label> Password:
+							  <input type="password" onChange={this.handlePassword}/>
+						  </label>
+						</div><br/>
 
-            <label> Default Currency:
-              <select onChange={this.handleDefaultCurrency} defaultValue="USD">
-                {
-                  currency_constants.currencies.map(function(currency, idx) {
-                    return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
-                  })
-                }
-              </select>
-            </label>
+            <div className="center">
+              <label> Default Currency:
+                <select className="currency act-creation" onChange={this.handleDefaultCurrency} defaultValue="USD">
+                  {
+                    currency_constants.currencies.map(function(currency, idx) {
+                      return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
+                    })
+                  }
+                </select>
+              </label>
+            </div>
 					</section><br/>
 
 					<section>
@@ -136,13 +142,17 @@ var LoginForm = React.createClass({
        return(
         <form>
           <section>
-            <label> Username:
-              <input type="text" onChange={this.handleUsername}/>
-            </label>
+            <div className="center">
+              <label> Username:
+                <input type="text" onChange={this.handleUsername}/>
+              </label>
+            </div>
 
-            <label> Password:
-              <input type="password" onChange={this.handlePassword}/>
-            </label>
+            <div className="center">
+              <label> Password:
+                <input type="password" onChange={this.handlePassword}/>
+              </label>
+            </div>
           </section><br />
 
           <section>
