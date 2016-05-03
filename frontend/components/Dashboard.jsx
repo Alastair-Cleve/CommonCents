@@ -75,8 +75,8 @@ var Dashboard = React.createClass({
                   }
                 </tbody>
               </table>
-          </div>
-          <button onClick={this.handleTransfer}>Make a Transfer</button>
+          </div><br/>
+          <button className="btn submit-btn" onClick={this.handleTransfer}>Make a Transfer</button>
         </div>
       </div>
     );

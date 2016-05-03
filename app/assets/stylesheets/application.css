@@ -105,6 +105,10 @@ width: 80%;
   background: #F4DECB
 }
 
+.btn.transfer {
+  background: #F4DECB
+}
+
 /* Clearfix */
 
 .group:after {
