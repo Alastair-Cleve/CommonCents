@@ -83,6 +83,11 @@ var Transfers = React.createClass({
     });
   },
 
+  handleLogOut: function () {
+    UserActions.logout();
+    hashHistory.push('/');
+  },
+
   render: function () {
     var libraries = this.state.usersLists;
     var searchString = this.state.searchString.trim().toLowerCase();
@@ -97,27 +102,50 @@ var Transfers = React.createClass({
       }
     }
     return(
-      <div className="transfer" >
-        <label> How much would you like to transfer?
-          <ConversionWidget className="transfer"/>
-          <button onClick={this.handleAmount}>Continue</button>
-        </label><br/><br />
-        <label> Who is receiving this transfer?
-          <br/><input type="text"
-                 onChange={this.handleChange}
-                 value={this.state.searchString}
-                 placeholder="Search for other users">
-          </input>
-          <ul>
-            {libraries.map(function(el){
-              return <li key={el.id} onClick={this.handleClick}>{el.username}</li>;
-            }.bind(this))}
-          </ul>
-        </label>
-        <label> Confirmation
-          You are transferring {this.state.amount} {this.state.currency} to {this.state.searchString}.
-          <br /><button onClick={this.handleConfirmation}>Confirm</button>
-        </label>
+      <div>
+        <header className="header">
+          <nav className="header-nav center group">
+
+            <a className="header-logo" href="#">Common&#xFFE0;ents</a>
+
+            <ul className="header-list group">
+              <li><div id="login" onClick={this.handleLogOut}>Log Out</div></li>
+            </ul>
+
+          </nav>
+        </header>
+
+        <div className="center">
+          <div className="dashboard group">
+
+            <div className="center">
+              <label> <h3>How much would you like to transfer?</h3>
+                <div id="transfer-widget"><ConversionWidget /></div>
+              </label>
+            </div>
+            <div className="center transfer-clear">
+              <label> <h3>Who is receiving this transfer?</h3>
+                <br/><input type="text"
+                       onChange={this.handleChange}
+                       value={this.state.searchString}
+                       placeholder="Search for other users">
+                </input>
+                <ul>
+                  {libraries.map(function(el){
+                    return <li key={el.id} onClick={this.handleClick}>{el.username}</li>;
+                  }.bind(this))}
+                </ul>
+              </label>
+            </div><br/>
+            <div className="center transfer-clear">
+              <label> <h3>Confirmation</h3>
+                You are transferring {this.state.amount} {this.state.currency} to {this.state.searchString}.
+                <br /><br /><button className="btn" onClick={this.handleConfirmation}>Confirm</button>
+              </label>
+            </div>
+
+          </div>
+        </div>
       </div>
     )
   }

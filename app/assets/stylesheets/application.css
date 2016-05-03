@@ -248,6 +248,14 @@ margin: 20px;
  color: #49274A;
 }
 
+div#transfer-widget #conversion {
+  float: left;
+}
+
+.transfer-clear {
+  clear: both;
+}
+
 .dashboard {
  margin-top: 50px;
  color: #49274A;
