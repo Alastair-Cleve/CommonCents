@@ -15,8 +15,15 @@ var ConversionActions = {
     ConversionUtil.fetchRatesForBase(base, this.receiveRatesForBase);
   },
 
-  fetchHistoricalRates: function(date, base) {
+  receiveHistoricalRates: function(ratesObject) {
+    AppDispatcher.dispatch({
+      actionType: ConversionConstants.RECEIVE_HISTORICAL_RATES,
+      ratesObject: ratesObject
+    })
+  },
 
+  fetchHistoricalRates: function(base, date) {
+    ConversionUtil.fetchHistoricalRates(base, date, this.receiveHistoricalRates);
   },
 
   addToAmountToTransfersStore: function(amount) {

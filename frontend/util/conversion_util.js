@@ -8,8 +8,15 @@ var ConversionUtil = {
 			type: "GET",
 			success: success
 		});
-	}
+	},
 
+	fetchHistoricalRates: function(base, date, success){
+		$.ajax({
+			url: "https://api.fixer.io/" + date + "/?base=" + base,
+			type: "GET",
+			success: success
+		});
+	}
 
 };
 

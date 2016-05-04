@@ -6,9 +6,14 @@ var _base = "";
 var _ratesObject = {};
 var _toAmount = 0;
 var _toCurrency = "EUR";
+var _historicalObject = {};
 
 ConversionStore.ratesObject = function() {
   return _ratesObject;
+};
+
+ConversionStore.historicalObject = function() {
+  return _historicalObject;
 };
 
 ConversionStore.setRatesObject = function(rates_object) {
@@ -34,6 +39,9 @@ ConversionStore.__onDispatch = function (payload) {
       break;
     case "RECEIVE_TO_CURRENCY":
       _toCurrency = payload.currency;
+      break;
+    case "RECEIVE_HISTORICAL_RATES":
+      _historicalObject = payload.ratesObject;
       break;
   }
   ConversionStore.__emitChange();
