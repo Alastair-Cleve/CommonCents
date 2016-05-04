@@ -138,7 +138,7 @@ var Transfers = React.createClass({
               </label>
             </div><br/>
             <div className="center transfer-clear">
-              <label> <h3>Confirmation</h3>
+              <label> <h3>Review</h3>
                 You are transferring {this.state.amount} {this.state.currency} to {this.state.searchString}.
                 <br /><br /><button className="btn" onClick={this.handleConfirmation}>Confirm</button>
               </label>
