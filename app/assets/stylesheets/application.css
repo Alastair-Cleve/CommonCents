@@ -216,19 +216,20 @@ clear: both;
 }
 
 .currency-drop-downs:last-child {
-  margin-top: -18px;
+  margin-top: -19px;
 }
 
 .currency {
  display: block;
  margin: 25px;
- margin-top: 46px;
+ margin-top: 48px;
  font-size: 20px;
  width: 150px;
 }
 
 .currency.act-creation {
   margin: 0px;
+  margin-top: 10px;
   display: inline-block;
 }
 
@@ -318,4 +319,12 @@ canvas {
   background-color: #F4DECB;
   border-radius: 10px;
   outline: none;
+}
+
+.username-password {
+  display: inline-block;;
+}
+
+.default-currency {
+  float: right;
 }

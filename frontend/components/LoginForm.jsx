@@ -104,31 +104,37 @@ var LoginForm = React.createClass({
       return(
         <div className="center">
   				<form>
-            <h1><p>Create a free account!</p></h1>
+            <h1><p>Create a free account!</p></h1><br/>
   					<section>
-  						<div className="center">
-                <label> Username:
-    							<input type="text" onChange={this.handleUsername}/>
-    						</label>
-  						</div>
 
-              <div className="center">
-                <label> Password:
-  							  <input type="password" onChange={this.handlePassword}/>
-  						  </label>
-  						</div><br/>
+              <div className="username-password">
+                <div className="center">
+                  <label> Username:
+      							<input type="text" onChange={this.handleUsername}/>
+      						</label>
+    						</div><br/>
 
-              <div className="center">
-                <label> Default Currency:
-                  <select className="currency act-creation" onChange={this.handleDefaultCurrency} defaultValue="USD">
-                    {
-                      currency_constants.currencies.map(function(currency, idx) {
-                        return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
-                      })
-                    }
-                  </select>
-                </label>
+                <div className="center">
+                  <label> Password:
+    							  <input type="password" onChange={this.handlePassword}/>
+    						  </label>
+    						</div><br/>
               </div>
+
+              <div className="default-currency">
+                <div className="center">
+                  <label> Default Currency:
+                    <select className="currency act-creation" onChange={this.handleDefaultCurrency} defaultValue="USD">
+                      {
+                        currency_constants.currencies.map(function(currency, idx) {
+                          return(<option key={idx} value={currency}>{currency_constants.flags[idx]}&nbsp;&nbsp;&nbsp;{currency}</option>)
+                        })
+                      }
+                    </select>
+                  </label>
+                </div>
+              </div>
+
   					</section><br/>
 
   					<section>
@@ -145,19 +151,23 @@ var LoginForm = React.createClass({
        return(
         <div className="center">
           <form>
-            <h1><p>Welcome back!</p></h1>
+            <h1><p>Welcome back!</p></h1><br/>
             <section>
-              <div className="center">
-                <label> Username:
-                  <input type="text" onChange={this.handleUsername}/>
-                </label>
+
+              <div className="username-password">
+                <div className="center">
+                  <label> Username:
+                    <input type="text" onChange={this.handleUsername}/>
+                  </label>
+                </div><br/>
+
+                <div className="center">
+                  <label> Password:
+                    <input type="password" onChange={this.handlePassword}/>
+                  </label>
+                </div><br/>
               </div>
 
-              <div className="center">
-                <label> Password:
-                  <input type="password" onChange={this.handlePassword}/>
-                </label>
-              </div>
             </section><br />
 
             <section>

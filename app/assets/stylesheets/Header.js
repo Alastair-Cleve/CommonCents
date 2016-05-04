@@ -11,8 +11,8 @@ module.exports = {
   content : {
     'position'        : 'fixed',
     'top'             : '75px',
-    'left'            : '300px',
-    'right'           : '300px',
+    'left'            : '250px',
+    'right'           : '275px',
     'bottom'          : '75px',
     'border'          : '1px solid #ccc',
     'padding'         : '20px',
