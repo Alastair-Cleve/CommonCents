@@ -316,4 +316,6 @@ canvas {
 /*Login Modal*/
 .modal {
   background-color: #F4DECB;
+  border-radius: 10px;
+  outline: none;
 }
