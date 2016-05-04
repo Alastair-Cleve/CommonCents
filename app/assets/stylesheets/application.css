@@ -29,7 +29,7 @@ body {
 }
 
 body * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 input[type="password"],
@@ -74,7 +74,6 @@ form select {
   background: #fff;
 }
 
-
 /* common classes */
 .center {
 margin: 0 auto;
@@ -98,15 +97,18 @@ width: 80%;
   line-height: 24px;
   border-radius: 3px;
   min-height: 48px;
-  background: #94618E;
+  background: #233237;
+  color: white;
 }
 
 .btn.submit-btn {
-  background: #F4DECB
+  color: white;
+  background: #233237;
 }
 
 .btn.transfer {
-  background: #F4DECB
+  color: white;
+  background: #233237;
 }
 
 /* Clearfix */
@@ -206,6 +208,7 @@ clear: both;
 .conversion {
  float: left;
  width: 200px;
+ font-variant: small-caps;
 }
 
 .currency-drop-downs > currency {
@@ -256,6 +259,16 @@ div#transfer-widget #conversion {
   clear: both;
 }
 
+#transferee-search {
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid silver;
+  padding-left: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  background: white;
+}
+
 .dashboard {
  margin-top: 50px;
  color: #49274A;
@@ -273,7 +286,7 @@ table {
 }
 
 th {
-  background-color: #94618E;
+  background-color: #49274A;
   color: #F8EEE7;
   height: 36px;
 }
@@ -302,5 +315,5 @@ canvas {
 
 /*Login Modal*/
 .modal {
-  background-color: #F8EEE7;
+  background-color: #F4DECB;
 }

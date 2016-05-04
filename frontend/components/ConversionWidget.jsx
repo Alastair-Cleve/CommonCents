@@ -79,6 +79,16 @@ var ConversionWidget = React.createClass({
     });
   },
 
+  // handleFromClick: function (e) {
+  //   e.preventDefault();
+  //   this.setState({fromAmount: ""});
+  // },
+  //
+  // handleToClick: function (e) {
+  //   e.preventDefault();
+  //   this.setState({toAmount: ""});
+  // },
+
   render: function () {
       return(
         <form id="conversion" className="group">

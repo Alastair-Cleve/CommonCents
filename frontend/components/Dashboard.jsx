@@ -10,7 +10,7 @@ var Dashboard = React.createClass({
   getInitialState: function () {
     return({
       transfers: [],
-      currentUser: UserStore.currentUser(),
+      currentUser: "",
       userErrors: UserStore.errors()
     });
   },
@@ -64,13 +64,14 @@ var Dashboard = React.createClass({
 
         <div className="center">
           <div className="dashboard">
-            <h1>Welcome to your dashboard!</h1><br/>
+            <h1>Welcome to your dashboard, {this.state.currentUser.username}!</h1><br/>
+              <h2>Transfers Sent</h2><br/>
               <table className="center">
                 <tbody>
                   <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
                   {
                     this.state.transfers.reverse().map(function(transfer) {
-                      return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+                      return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
                     })
                   }
                 </tbody>

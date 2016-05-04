@@ -132,8 +132,8 @@ var LoginForm = React.createClass({
   					</section><br/>
 
   					<section>
+              <input type="radio" name="intro" onClick={this.setForm} value="signup" checked="checked" />Signup
               <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
-              <input type="radio" name="intro" onClick={this.setForm} value="signup" />Signup
   					</section><br/>
 
   					<input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
@@ -161,8 +161,8 @@ var LoginForm = React.createClass({
             </section><br />
 
             <section>
-              <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
               <input type="radio" name="intro" onClick={this.setForm} value="signup" />Signup
+              <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
   					</section><br/>
 
             <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>

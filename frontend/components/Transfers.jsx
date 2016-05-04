@@ -125,7 +125,7 @@ var Transfers = React.createClass({
             </div>
             <div className="center transfer-clear">
               <label> <h3>Who is receiving this transfer?</h3>
-                <br/><input type="text"
+                <br/><input id="transferee-search" type="text"
                        onChange={this.handleChange}
                        value={this.state.searchString}
                        placeholder="Search for other users">
