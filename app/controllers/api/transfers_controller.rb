@@ -1,3 +1,4 @@
+
 class Api::TransfersController < ApplicationController
 
 #Rethink controller architecture: remember that you do not have an index action.
@@ -18,8 +19,10 @@ class Api::TransfersController < ApplicationController
   end
 
   def show
-    @transfers = current_user.transfers
-    if @transfers
+    @current_user = current_user
+    # @transfers = current_user.transfers
+    # if @transfers
+    if @current_user
       render "api/transfers/show"
     else
       render "[]"

@@ -16,6 +16,13 @@ class User < ActiveRecord::Base
 		primary_key: :id
 	)
 
+	has_many(
+	  :received_transfers,
+		class_name: 'Transfer',
+		foreign_key: :transferee_id,
+		primary_key: :id
+	)
+
 	def password=(password)
 		self.password_digest = BCrypt::Password.create(password)
 		@password = password
