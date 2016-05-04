@@ -65,6 +65,7 @@ var Dashboard = React.createClass({
         <div className="center">
           <div className="dashboard">
             <h1>Welcome to your dashboard, {this.state.currentUser.username}!</h1><br/>
+              <h2>Your default currency is: {this.state.currentUser.default_currency}</h2><br/>
               <h2>Transfers Sent</h2><br/>
               <table className="center">
                 <tbody>
