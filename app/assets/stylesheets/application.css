@@ -349,6 +349,18 @@ canvas {
   outline: none;
 }
 
+.radio-buttons-login {
+  margin-left: 24px;
+}
+
+#login-radio {
+  margin-left: 15px;
+}
+
+#guest-btn {
+  background: #94618E;
+}
+
 .username-password {
   display: inline-block;;
 }

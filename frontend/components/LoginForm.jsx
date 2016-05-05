@@ -17,7 +17,7 @@ var LoginForm = React.createClass({
 		return ({form: "signup",
             username: "",
             password: "",
-            default_currency: "",
+            default_currency: "USD",
             currentUser: UserStore.currentUser(),
       			userErrors: UserStore.errors(),
             show_currency: true
@@ -137,13 +137,13 @@ var LoginForm = React.createClass({
 
   					</section><br/>
 
-  					<section>
+            <section className="radio-buttons-login">
               <input type="radio" name="intro" onClick={this.setForm} value="signup" checked="checked" />Signup
-              <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
+              <input type="radio" id="login-radio" name="intro" onClick={this.setForm} value="login" />Login
   					</section><br/>
 
   					<input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
-            <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
+            <input className="btn submit-btn" id="guest-btn" readOnly={true} type="Submit" value="Login as Guest" onClick={this.handleDemo}/>
   				</form>
         </div>
       )
@@ -170,13 +170,13 @@ var LoginForm = React.createClass({
 
             </section><br />
 
-            <section>
+            <section className="radio-buttons-login">
               <input type="radio" name="intro" onClick={this.setForm} value="signup" />Signup
-              <input type="radio" name="intro" onClick={this.setForm} value="login" />Login
+              <input type="radio" id="login-radio" name="intro" onClick={this.setForm} value="login" />Login
   					</section><br/>
 
             <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
-            <input className="btn submit-btn" readOnly={true} type="Submit" value="Demo" onClick={this.handleDemo}/>
+            <input className="btn submit-btn" id="guest-btn" readOnly={true} type="Submit" value="Login as Guest" onClick={this.handleDemo}/>
           </form>
         </div>
       )
