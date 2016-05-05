@@ -20,6 +20,11 @@ var CurrentUserState = require('./mixins/current_user_state');
 var Modal = require('react-modal');
 
 var App = React.createClass({
+
+  handleTransfer: function(){
+
+  },
+
   render: function(){
     return (
       <div>
@@ -41,6 +46,9 @@ var App = React.createClass({
               <p className="sub-header">{"Banks hide huge charges when you send money abroad. With CommonCents, you save up to 90%. Problem solved, money saved."}</p>
             </div>
             <ConversionWidget/>
+          </div>
+          <div className="center">
+            <button className="btn submit-btn" id="transfer-btn" onClick={this.handleTransfer}>Make a Transfer</button>
           </div>
         </div>
 

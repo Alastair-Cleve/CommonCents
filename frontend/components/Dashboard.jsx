@@ -65,7 +65,12 @@ var Dashboard = React.createClass({
         <div className="center">
           <div className="dashboard">
             <h1>Welcome to your dashboard, {this.state.transfers['current_user']['username']}!</h1><br/>
-              <h2>Your default currency is: {this.state.transfers['current_user']['default_currency']}</h2><br/>
+              <h2 id="transfer-title">Your default currency is: {this.state.transfers['current_user']['default_currency']}</h2><br/>
+
+              <div>
+              <button className="btn submit-btn" id="transfer-btn" onClick={this.handleTransfer}>Make a Transfer</button>
+              </div><br/>
+
               <h2>Transfers Sent</h2><br/>
               <table className="center">
                 <tbody>
@@ -90,9 +95,7 @@ var Dashboard = React.createClass({
                 </tbody>
               </table>
 
-
           </div><br/>
-          <button className="btn submit-btn" onClick={this.handleTransfer}>Make a Transfer</button>
         </div>
       </div>
     );

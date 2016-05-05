@@ -111,6 +111,15 @@ width: 80%;
   background: #233237;
 }
 
+#transfer-title {
+  display: block;
+  float: left;
+}
+
+#transfer-btn {
+  float: right;
+}
+
 /* Clearfix */
 
 .group:after {
