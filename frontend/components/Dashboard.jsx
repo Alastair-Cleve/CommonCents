@@ -51,6 +51,27 @@ var Dashboard = React.createClass({
   },
 
   render: function () {
+    if (this.state.transfers["transfers"].length > 0) {
+      var transfers_table =
+      this.state.transfers["transfers"].reverse().map(function(transfer) {
+        return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+      });
+      var transfers_table_empty = "";
+    } else {
+      var transfers_table = "";
+      var transfers_table_empty = <h3 className="center">You have not made any transfers yet.</h3>
+    }
+
+    if (this.state.transfers["received_transfers"].length > 0) {
+      var received_transfers_table =  this.state.transfers["received_transfers"].reverse().map(function(transfer) {
+        return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.transferor}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
+      });
+      var received_transfers_table_empty = "";
+    } else {
+      var received_transfers_table = "";
+      var received_transfers_table_empty = <h3 className="center">You have not received any transfers yet.</h3>
+    }
+
     return(
       <div>
         <header className="header">
@@ -79,24 +100,22 @@ var Dashboard = React.createClass({
                 <tbody>
                   <tr><th>Date</th><th>Time</th><th>Recipient</th><th>Amount</th><th>Currency</th></tr>
                   {
-                    this.state.transfers["transfers"].reverse().map(function(transfer) {
-                      return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
-                    })
+                    transfers_table
                   }
                 </tbody>
-              </table><br /><br />
+              </table>
+                  {transfers_table_empty}
 
-              <h2>Transfers Received</h2><br/>
+              <br /><br /><h2>Transfers Received</h2><br/>
               <table className="center">
                 <tbody>
                   <tr><th>Date</th><th>Time</th><th>Sender</th><th>Amount</th><th>Currency</th></tr>
                   {
-                    this.state.transfers["received_transfers"].reverse().map(function(transfer) {
-                      return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.transferor}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
-                    })
+                    received_transfers_table
                   }
                 </tbody>
               </table>
+                  {received_transfers_table_empty}
 
           </div><br/>
         </div>
