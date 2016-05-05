@@ -93,7 +93,7 @@ var Transfers = React.createClass({
     var searchString = this.state.searchString.trim().toLowerCase();
     if (searchString.length === 0) {
       libraries = [];
-    } else if (searchString.length > 1) {
+    } else if (searchString.length > 0) {
       libraries = libraries.filter(function(el){
         return el.username.toLowerCase().match(searchString);
       });
@@ -119,12 +119,12 @@ var Transfers = React.createClass({
           <div className="dashboard group">
 
             <div className="center">
-              <label> <h3>How much would you like to transfer?</h3>
+              <label> <h3>Step 1: &nbsp;How much would you like to transfer?</h3>
                 <div id="transfer-widget"><ConversionWidget /></div>
               </label>
             </div>
             <div className="center transfer-clear">
-              <label> <h3>Who is receiving this transfer?</h3>
+              <label> <h3>Step 2: &nbsp;Who is receiving this transfer?</h3>
                 <br/><input id="transferee-search" type="text"
                        onChange={this.handleChange}
                        value={this.state.searchString}
@@ -138,7 +138,7 @@ var Transfers = React.createClass({
               </label>
             </div><br/>
             <div className="center transfer-clear">
-              <label> <h3>Review</h3>
+              <label> <h3>Step 3: &nbsp;Review</h3>
                 You are transferring {this.state.amount} {this.state.currency} to {this.state.searchString}.
                 <br /><br /><button className="btn" onClick={this.handleConfirmation}>Confirm</button>
               </label>
