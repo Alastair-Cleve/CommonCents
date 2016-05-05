@@ -1,5 +1,6 @@
 var AppDispatcher = require('../dispatcher/dispatcher.js');
 var Store = require('flux/utils').Store;
+var hashHistory = require('react-router').hashHistory;
 
 var UserStore = new Store(AppDispatcher);
 
@@ -32,6 +33,7 @@ UserStore.login = function(user){
 UserStore.logout = function(){
   _currentUser = null;
   _errors = null;
+  hashHistory.push("/");
 };
 
 UserStore.currentUser = function(){
