@@ -19,12 +19,12 @@ var LoginForm = React.createClass({
 
 	getInitialState: function(){
 		return ({form: "signup",
-            username: "",
-            password: "",
-            default_currency: "USD",
-            currentUser: UserStore.currentUser(),
-      			userErrors: UserStore.errors(),
-            show_currency: true
+             username: "",
+             password: "",
+             default_currency: "USD",
+             currentUser: UserStore.currentUser(),
+      			 userErrors: UserStore.errors(),
+             show_currency: true
       });
 	},
   componentDidMount: function(){
@@ -60,7 +60,7 @@ var LoginForm = React.createClass({
 
   handleDemo: function(e) {
     e.preventDefault();
-    this.setState({form: "login", username: "", password: ""});
+    this.setState({show_currency: false, username: "", password: ""});
     var _username = this.DEMO_USERNAME.split("").slice();
     this.fillDemoUsername(_username);
   },
@@ -194,7 +194,7 @@ var LoginForm = React.createClass({
   					</section><br/>
 
             <section className="radio-buttons-login">
-              <input type="radio" name="intro" onClick={this.setForm} value="signup" checked="checked" />Signup
+              <input type="radio" name="intro" onClick={this.setForm} value="signup" checked={true} onChange={this.setForm} />Signup
               <input type="radio" id="login-radio" name="intro" onClick={this.setForm} value="login" />Login
   					</section><br/>
 
@@ -228,7 +228,7 @@ var LoginForm = React.createClass({
 
             <section className="radio-buttons-login">
               <input type="radio" name="intro" onClick={this.setForm} value="signup" />Signup
-              <input type="radio" id="login-radio" name="intro" onClick={this.setForm} value="login" />Login
+              <input type="radio" id="login-radio" name="intro" onClick={this.setForm} value="login" checked={true} />Login
   					</section><br/>
 
             <input className="btn submit-btn" readOnly={true} type="Submit" value="Submit" onClick={this.handleSubmit}/><br/><br/>
