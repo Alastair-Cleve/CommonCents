@@ -47,7 +47,7 @@ var Dashboard = React.createClass({
 
   handleLogOut: function () {
     UserActions.logout();
-    hashHistory.push('/');
+    setTimeout(hashHistory.push('/'), 500);
   },
 
   render: function () {
