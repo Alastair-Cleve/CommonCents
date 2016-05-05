@@ -52,8 +52,7 @@ var Dashboard = React.createClass({
 
   render: function () {
     if (this.state.transfers["transfers"].length > 0) {
-      var transfers_table =
-      this.state.transfers["transfers"].reverse().map(function(transfer) {
+      var transfers_table = this.state.transfers["transfers"].reverse().map(function(transfer) {
         return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
       });
       var transfers_table_empty = "";
