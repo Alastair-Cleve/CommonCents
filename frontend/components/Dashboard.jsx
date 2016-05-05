@@ -18,6 +18,9 @@ var Dashboard = React.createClass({
 	componentDidMount: function () {
     // this.userListener = UserStore.addListener(this.updateUser);
     // UserActions.fetchCurrentUser();
+    if (window.transferVariables) {
+      hashHistory.push("/transfer");
+    }
     this.transferListener = TransfersStore.addListener(this.updateTransfers);
     TransfersActions.fetchTransfers();
   },

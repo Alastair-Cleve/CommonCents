@@ -3,6 +3,7 @@ var Modal = require('react-modal');
 var style = require('../../app/assets/stylesheets/Header.js');
 var LoginForm = require('./LoginForm');
 var UserStore = require('../stores/user_store');
+var ConversionStore = require('../stores/conversion_store');
 var UserActions = require('../actions/user_actions');
 var hashHistory = require('react-router').hashHistory;
 
@@ -15,13 +16,24 @@ var Header = React.createClass({
              salutation: ""});
   },
   componentDidMount: function(){
+    $("button").on('click', this.handleTransferButtonClick);
     this.listener = UserStore.addListener(this.updateUser);
     if (typeof UserStore.currentUser() === 'undefined') {
       UserActions.fetchCurrentUser();
     }
   },
   componentWillUnmount: function () {
+    $("button").off('click', this.handleTransferButtonClick);
     this.listener.remove();
+  },
+  handleTransferButtonClick: function() {
+    window.transferVariables = {
+      exchangeRate: ConversionStore.ratesObject()["rates"][ConversionStore.toCurrency()],
+      fromCurrency: ConversionStore.ratesObject()["base"],
+      toCurrency: ConversionStore.toCurrency(),
+      toAmount: ConversionStore.toAmount()
+    };
+    this.setState({modalOpen: true});
   },
   updateUser: function(){
     this.setState({

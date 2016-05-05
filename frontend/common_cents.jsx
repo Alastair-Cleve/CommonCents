@@ -21,10 +21,6 @@ var Modal = require('react-modal');
 
 var App = React.createClass({
 
-  handleTransfer: function(){
-
-  },
-
   render: function(){
     return (
       <div>
@@ -48,7 +44,7 @@ var App = React.createClass({
             <ConversionWidget/>
           </div>
           <div className="center">
-            <button className="btn submit-btn" id="transfer-btn" onClick={this.handleTransfer}>Make a Transfer</button>
+            <button className="btn submit-btn" id="transfer-btn">Make a Transfer</button>
           </div>
         </div>
 
@@ -56,7 +52,6 @@ var App = React.createClass({
           <Chart/>
         </div>
       </div>
-
     );
   }
 });

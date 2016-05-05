@@ -7,18 +7,41 @@ var currency_constants = require('../constants/currency_constants');
 
 var ConversionWidget = React.createClass({
   getInitialState: function () {
-    return({
-      ratesObject: ConversionStore.ratesObject(),
-      fromAmount: "0.00",
-      toAmount: "0.00",
-      fromCurrency: "USD",
-      toCurrency: "EUR"
-    });
+    if (window.transferVariables) {
+      return({
+        ratesObject: ConversionStore.ratesObject(),
+        fromAmount: (window.transferVariables["toAmount"] / window.transferVariables["exchangeRate"]).toFixed(2),
+        toAmount: "",
+        fromCurrency: window.transferVariables["fromCurrency"],
+        toCurrency: window.transferVariables["toCurrency"]
+      });
+    } else {
+      return({
+        ratesObject: ConversionStore.ratesObject(),
+        fromAmount: "0.00",
+        toAmount: "0.00",
+        fromCurrency: "USD",
+        toCurrency: "EUR"
+      });
+    }
   },
 
 	componentDidMount: function () {
-    this.listener = ConversionStore.addListener(this.updateRatesWidget);
-    ConversionActions.fetchRatesForBase(this.state.fromCurrency);
+    // if (window.transferVariables) {
+    //
+    //   this.setState({fromCurrency: window.transferVariables["fromCurrency"]}, function() {
+    //     this.listener = ConversionStore.addListener(this.updateRatesWidget);
+    //     ConversionActions.fetchRatesForBase(this.state.fromCurrency);
+    //     this.setState({toCurrency: window.transferVariables["toCurrency"]}, function() {
+    //       this.setState({toAmount: window.transferVariables["toAmount"]}, function () {
+    //       });
+    //     });
+    //   });
+    // } else {
+      window.transferVariables = undefined;
+      this.listener = ConversionStore.addListener(this.updateRatesWidget);
+      ConversionActions.fetchRatesForBase(this.state.fromCurrency);
+    // }
   },
 
   componentWillUnmount: function () {
