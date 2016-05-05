@@ -10,9 +10,13 @@ var currencies = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK",
   "MXN", "MYR", "NOK", "NZD", "PHP", "PLN", "RON", "RUB", "SEK", "SGD",
   "THB", "TRY", "USD", "ZAR"];
 
-
 var LoginForm = React.createClass({
 	// mixins: [CurrentUserState],
+
+  DEMO_USERNAME: "guest",
+
+  DEMO_PASSWORD: "password",
+
 	getInitialState: function(){
 		return ({form: "signup",
             username: "",
@@ -53,13 +57,65 @@ var LoginForm = React.createClass({
       default_currency: this.state.default_currency
 		});
 	},
-  handleDemo: function(e){
+
+  handleDemo: function(e) {
     e.preventDefault();
-    UserActions.login({
-      username: "guest",
-      password: "password"
-    });
+    this.setState({form: "login", username: "", password: ""});
+    var _username = this.DEMO_USERNAME.split("").slice();
+    this.fillDemoUsername(_username);
   },
+
+  fillDemoUsername: function(_username) {
+    var self = this;
+    if (_username.length > 0) {
+      setTimeout(function() {
+        self.setState({
+          username: self.state.username + _username.shift()
+        });
+
+        self.fillDemoUsername(_username);
+      }, 200);
+    } else {
+      var _password = this.DEMO_PASSWORD.split("").slice();
+      this.fillDemoPassword(_password);
+    }
+  },
+
+  fillDemoPassword: function(_password) {
+    var self = this;
+    if (_password.length > 0) {
+      setTimeout(function() {
+        self.setState({
+          password: self.state.password + _password.shift()
+        });
+
+        self.fillDemoPassword(_password);
+      }, 200);
+    } else {
+        // e.preventDefault();
+        UserActions.login({
+          username: "guest",
+          password: "password"
+        });
+      // var e = { preventDefault: function() {} };
+      // this.submitHandler(e);
+    }
+  },
+
+
+
+///////
+
+
+
+  // handleDemo: function(e){
+  //   e.preventDefault();
+  //   UserActions.login({
+  //     username: "guest",
+  //     password: "password"
+  //   });
+  // },
+
   handleUsername: function(e){
     this.setState({username: e.target.value});
   },
@@ -110,13 +166,13 @@ var LoginForm = React.createClass({
               <div className="username-password">
                 <div className="center">
                   <label> Username:
-      							<input type="text" onChange={this.handleUsername}/>
+      							<input type="text" onChange={this.handleUsername} value={this.state.username}/>
       						</label>
     						</div><br/>
 
                 <div className="center">
                   <label> Password:
-    							  <input type="password" onChange={this.handlePassword}/>
+    							  <input type="password" onChange={this.handlePassword} value={this.state.password}/>
     						  </label>
     						</div><br/>
               </div>
@@ -157,13 +213,13 @@ var LoginForm = React.createClass({
               <div className="username-password">
                 <div className="center">
                   <label> Username:
-                    <input type="text" onChange={this.handleUsername}/>
+                    <input type="text" onChange={this.handleUsername} value={this.state.username}/>
                   </label>
                 </div><br/>
 
                 <div className="center">
                   <label> Password:
-                    <input type="password" onChange={this.handlePassword}/>
+                    <input type="password" onChange={this.handlePassword} value={this.state.password}/>
                   </label>
                 </div><br/>
               </div>
