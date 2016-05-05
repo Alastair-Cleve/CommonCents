@@ -9,11 +9,11 @@
 Common&#xFFE0;ents is a web application inspired by TransferWise that will be built using Ruby on Rails and React.js. By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [x] New account creation, login, and guest/demo login
-- [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data to demonstrate the site's features
+- [x] Smooth, bug-free navigation
+- [x] Adequate seed data to demonstrate the site's features
 - [ ] The minimally necessary features for an TransferWise-inspired site: conversion widget to convert between selected currencies, an ability to make new FOREX transfers, a Navbar to navigate the site, and a dashboard of past transactions
 - [x] Hosting on Heroku
-- [ ] CSS styling that is satisfactorily visually appealing
+- [x] CSS styling that is satisfactorily visually appealing
 - [ ] A production README, replacing this README
 
 ## Product Goals and Priorities
@@ -24,20 +24,20 @@ Common&#xFFE0;ents will allow users to do the following:
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] Interact with a landing page to discover Common&#xFFE0;ents’ offering
-  - [ ] Currency conversion widget (&#x1F534; P1 - MVP)
+  - [x] Currency conversion widget (&#x1F534; P1 - MVP)
   - [ ] Graph of exchange rates over past 30 days (&#x1F535; P2 - expected feature, but not MVP)
     - [ ] Links to competitor website via query string (&#x1F535; P2 - expected feature, but not MVP)
   - [ ] User reviews side-scrolling carousel (&#x1F535; P2 - expected feature, but not MVP)
   - [ ] Interactive map of supported countries with pulses simulating active transactions (&#x1F52E; P3 - stretch feature)
-- [ ] Create an account (&#x1F534; P1 - MVP)
-- [ ] Log in / Log out, including as a Guest/Demo User (&#x1F534; P1 - MVP)
-- [ ] Make a new transfer transaction in 3 basic steps: currency pair, sender’s details, receiver’s details  (&#x1F534; P1 - MVP)
-  - [ ] Note: transaction is simulated only and not connected to any bank APIs
-  - [ ] Confirmation screen with transaction summary (&#x1F535; P2 - expected feature, but not MVP)
+- [x] Create an account (&#x1F534; P1 - MVP)
+- [x] Log in / Log out, including as a Guest/Demo User (&#x1F534; P1 - MVP)
+- [x] Make a new transfer transaction in 3 basic steps: currency pair, sender’s details, receiver’s details  (&#x1F534; P1 - MVP)
+  - [x] Note: transaction is simulated only and not connected to any bank APIs
+  - [x] Confirmation screen with transaction summary (&#x1F535; P2 - expected feature, but not MVP)
   - [ ] Interactive breadcrumbs throughout transfer process (&#x1F52E; P3 - stretch feature)
-- [ ] User dashboard with list of past transactions and ability to make a new transfer (&#x1F534; P1 - expected feature, but not MVP)
+- [x] User dashboard with list of past transactions and ability to make a new transfer (&#x1F534; P1 - expected feature, but not MVP)
 - [ ] Update account settings: update email, update password, default currency (&#x1F52E; P3 - expected feature, but not MVP)
-- [ ] Currency exchange rates connected to a live JSON API such Fixer.io, Open Exchange Rates (&#x1F534; P1 - stretch feature)
+- [x] Currency exchange rates connected to a live JSON API such Fixer.io, Open Exchange Rates (&#x1F534; P1 - stretch feature)
 
 ## Design Docs
 * [View Wireframes][views]
@@ -126,8 +126,10 @@ populate the users's transfer history.
 
 **Objective:** Fix any styling issues
 
-- [ ] Fix outstanding styling issues
+- [x] Fix outstanding styling issues
 - [ ] Indulge in other styling desires
+- [ ] Work on various other issues as they come up
+  - [x] In progress
 
 ## Bonus features
 
