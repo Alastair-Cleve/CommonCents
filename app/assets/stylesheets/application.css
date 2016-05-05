@@ -276,7 +276,26 @@ div#transfer-widget #conversion {
   padding-left: 5px;
   font-size: 16px;
   margin-top: 10px;
+  margin-left: 20px;
   background: white;
+  position: relative;
+}
+
+.ul-transferee-search {
+  margin-left: 20px;
+  border: 1px solid silver;
+  width: 174px;
+  border-radius: 4px;
+  background: white;
+  position: absolute;
+}
+
+.li-transferee-search {
+  padding-left: 10px;
+}
+
+.li-transferee-search:hover {
+  background: cornflowerblue;
 }
 
 .dashboard {

@@ -130,9 +130,9 @@ var Transfers = React.createClass({
                        value={this.state.searchString}
                        placeholder="Search for other users">
                 </input>
-                <ul>
+                <ul className="ul-transferee-search">
                   {libraries.map(function(el){
-                    return <li key={el.id} onClick={this.handleClick}>{el.username}</li>;
+                    return <li className="li-transferee-search" key={el.id} onClick={this.handleClick}>{el.username}</li>;
                   }.bind(this))}
                 </ul>
               </label>
