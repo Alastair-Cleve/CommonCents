@@ -15,6 +15,8 @@ var Dashboard = React.createClass({
     });
   },
 
+//Testing git.
+
 	componentDidMount: function () {
     // this.userListener = UserStore.addListener(this.updateUser);
     // UserActions.fetchCurrentUser();
