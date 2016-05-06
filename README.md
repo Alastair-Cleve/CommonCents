@@ -14,12 +14,24 @@ past transactions.
 ##Features
 
 - Single Page App
-- Front-end Authentication
+- Front-End Authentication
   - Uses a modal architecture that gives users the choice of creating an account,
     logging in, or touring the site as a Demo User
 
-    ![Screenshot](/docs/Signup.png)
-  
+    ![Signup_Screenshot](/docs/Signup.png)
+
+- Conversion Widget
+  - Connected to a third-party API that provides up-to-date exchange rates. The
+    number fields update dynamically before users' eyes, and changes in the number
+    and currency fields update other fields as necessary.
+  - The `Make a Transfer` button forces the user to login or create an account
+    and then re-directs the user to the Transfer process with the Transfer
+    process fields pre-populated. (Alternatively, users can click `Log In/Sign In`
+    at the top of the landing page.)
+
+    ![Widget_Screenshot](/docs/Widget.png)
+
+
 
 
 
