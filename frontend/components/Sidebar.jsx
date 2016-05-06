@@ -91,11 +91,11 @@ var Sidebar = React.createClass({
     return (
       <Menu styles={styles}>
         <h1>Today's Rates</h1><br/>
-        <h3>1 {this.props.default_currency} buys:</h3><br/>
+        <h3>1&nbsp;&nbsp;{CurrencyConstants["pairs"][this.props.default_currency]}&nbsp;&nbsp;{this.props.default_currency} buys:</h3><br/>
         <div>
           {
             pairs.map(function(currency) {
-              return (<div>{localRates["rates"][currency]} {CurrencyConstants["pairs"][currency]}</div>)
+              return (<div className="center">{localRates["rates"][currency].toFixed(2)}&nbsp;&nbsp;{CurrencyConstants["pairs"][currency]}&nbsp;&nbsp;{currency}</div>)
             })
           }
         </div>
@@ -124,7 +124,7 @@ var styles = {
   },
   bmMenu: {
     background: '#373a47',
-    padding: '2.5em 1.5em 0',
+    padding: '2.5em 1.5em 2.5em',
     fontSize: '1.15em'
   },
   bmMorphShape: {
@@ -132,7 +132,8 @@ var styles = {
   },
   bmItemList: {
     color: '#b8b7ad',
-    padding: '0.8em'
+    padding: '0.8em',
+    overflowY: 'scroll'
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
