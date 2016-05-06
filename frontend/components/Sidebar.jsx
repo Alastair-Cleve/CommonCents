@@ -4,6 +4,7 @@ var React = require('react');
 var ConversionActions = require('../actions/conversion_actions');
 var TransfersStore = require('../stores/transfers_store');
 var ConversionStore = require('../stores/conversion_store');
+var CurrencyConstants = require('../constants/currency_constants');
 
 var Sidebar = React.createClass({
 
@@ -51,8 +52,6 @@ var Sidebar = React.createClass({
   },
   componentDidMount: function () {
     this.listener = ConversionStore.addListener(this.updateRates);
-    console.log(this.props.default_currency);
-    console.log(this.state.default_currency);
     ConversionActions.fetchRatesForBase(this.state.default_currency);
   },
   componentWillUnmount: function () {
@@ -69,45 +68,41 @@ var Sidebar = React.createClass({
     event.preventDefault();
   },
   render: function() {
-    // console.log(this.state.myRates);
-    // console.log(this.state.default_currency);
     var localRates = this.state.myRates;
+    var pairs = Object.keys(localRates["rates"]);
+    console.log(pairs);
 
-    var currencies = Object.keys(localRates["rates"]);
-    var values = [];
-    for (var i = 0; i < currencies.length; i++) {
-      // console.log(localRates["rates"][currencies[i]]);
-      values.push(localRates["rates"][currencies[i]]);
-    }
+    // var currencies = Object.keys(localRates["rates"]);
+    // var values = [];
+    // for (var i = 0; i < currencies.length; i++) {
+    //   values.push(localRates["rates"][currencies[i]]);
+    // }
+    //
+    // var pairs = [];
+    // for (var i = 0; i < currencies.length; i++) {
+    //   pairs.push(<div>values[i] CurrencyConstants["pairs"][currencies[i]]</div>);
+      // pairs.push("" + values[i] + " " + CurrencyConstants["pairs"][currencies[i]] + "\n");
+    // }
 
-    var pairs = [];
-    for (var i = 0; i < currencies.length; i++) {
-      // console.log(values[i]);
-      // console.log(currencies[i]);
-      pairs.push("" + values[i] + " " + currencies[i] + "\n");
-    }
-
-    // console.log(currencies);
-    // console.log(values);
-
-    // console.log(localRates);
-    // currencies.map(function(currency) { return(<li>localRates["rates"][currency] currency</li>); });
-    // console.log(currencies);
+    // pairs = pairs.map(function(currency) {
+    //   return (<div>localRates["rates"][currency] CurrencyConstants["pairs"][currency]</div>)
+    // });
 
     return (
       <Menu styles={styles}>
         <h1>Today's Rates</h1><br/>
         <h3>1 {this.props.default_currency} buys:</h3><br/>
-        <ul>
+        <div>
           {
-            pairs
+            pairs.map(function(currency) {
+              return (<div>{localRates["rates"][currency]} {CurrencyConstants["pairs"][currency]}</div>)
+            })
           }
-        </ul>
+        </div>
      </Menu>
     );
   }
 });
-
 
 var styles = {
   bmBurgerButton: {
