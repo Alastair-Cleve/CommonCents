@@ -4,6 +4,7 @@ var TransfersStore = require('../stores/transfers_store');
 var hashHistory = require('react-router').hashHistory;
 var UserActions = require('../actions/user_actions');
 var UserStore = require('../stores/user_store');
+var Sidebar = require('./sidebar');
 
 
 var Dashboard = React.createClass({
@@ -14,8 +15,6 @@ var Dashboard = React.createClass({
       userErrors: UserStore.errors()
     });
   },
-
-  //Comment to test git.
 
 	componentDidMount: function () {
     // this.userListener = UserStore.addListener(this.updateUser);
@@ -86,6 +85,8 @@ var Dashboard = React.createClass({
 
           </nav>
         </header>
+
+        <Sidebar />
 
         <div className="center">
           <div className="dashboard">
