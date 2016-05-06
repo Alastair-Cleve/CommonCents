@@ -74,6 +74,7 @@ var Dashboard = React.createClass({
 
     return(
       <div>
+        <Sidebar />
         <header className="header">
           <nav className="header-nav center group">
 
@@ -86,7 +87,6 @@ var Dashboard = React.createClass({
           </nav>
         </header>
 
-        <Sidebar />
 
         <div className="center">
           <div className="dashboard">

@@ -8,10 +8,7 @@ var Sidebar = React.createClass({
   render: function() {
     return (
       <Menu styles={styles}>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        <h1>Today's Rates</h1>
       </Menu>
     );
   }
@@ -23,8 +20,8 @@ var styles = {
     position: 'fixed',
     width: '36px',
     height: '30px',
-    left: '36px',
-    top: '36px'
+    left: '0px',
+    top: '100px'
   },
   bmBurgerBars: {
     background: '#373a47'
