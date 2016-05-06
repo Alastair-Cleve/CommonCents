@@ -106,7 +106,7 @@ var Transfers = React.createClass({
         <header className="header">
           <nav className="header-nav center group">
 
-            <a className="header-logo" href="#">Common&#xFFE0;ents</a>
+            <a className="header-logo" href="">Common&#xFFE0;ents</a>
 
             <ul className="header-list group">
               <li><div id="login" onClick={this.handleLogOut}>Log Out</div></li>

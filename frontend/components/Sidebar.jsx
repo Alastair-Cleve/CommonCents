@@ -85,7 +85,7 @@ var Sidebar = React.createClass({
           <tbody>
           {
             pairs.sort().map(function(currency) {
-              return (<tr className="sidebar-row"><td>{numberWithCommas(localRates["rates"][currency].toFixed(2))}</td><td>{CurrencyConstants["pairs"][currency]}&nbsp;&nbsp;{currency}</td></tr>)
+              return (<tr key={currency} className="sidebar-row"><td>{numberWithCommas(localRates["rates"][currency].toFixed(2))}</td><td>{CurrencyConstants["pairs"][currency]}&nbsp;&nbsp;{currency}</td></tr>)
             })
           }
           </tbody>
