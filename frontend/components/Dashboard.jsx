@@ -4,7 +4,7 @@ var TransfersStore = require('../stores/transfers_store');
 var hashHistory = require('react-router').hashHistory;
 var UserActions = require('../actions/user_actions');
 var UserStore = require('../stores/user_store');
-var Sidebar = require('./sidebar');
+var Sidebar = require('./Sidebar');
 
 
 var Dashboard = React.createClass({
