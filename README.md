@@ -16,7 +16,7 @@ past transactions.
 - Single Page App
 - Front-End Authentication
   - Uses a modal architecture that gives users the choice of creating an account,
-    logging in, or touring the site as a Demo User
+    logging in, or touring the site as a Demo User.
 
     ![Signup_Screenshot](/docs/Signup.png)
 
