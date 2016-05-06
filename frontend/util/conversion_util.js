@@ -2,7 +2,6 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 
 var ConversionUtil = {
 	fetchRatesForBase: function(base, success){
-		console.log("In Util: ", base);
 		$.ajax({
 			url: "https://api.fixer.io/latest?base=" + base,
 			type: "GET",

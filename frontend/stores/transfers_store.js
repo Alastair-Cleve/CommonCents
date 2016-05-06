@@ -14,7 +14,6 @@ TransfersStore.addTransfers = function(transfers) {
 };
 
 TransfersStore.__onDispatch = function (payload) {
-  console.log(payload.actionType);
   switch(payload.actionType) {
     case "RECEIVE_TRANSFERS":
     	TransfersStore.addTransfers(payload.transfers);

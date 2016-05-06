@@ -56,7 +56,9 @@ var Sidebar = React.createClass({
   },
   componentDidMount: function () {
     this.listener = ConversionStore.addListener(this.updateRates);
-    ConversionActions.fetchRatesForBase(this.state.default_currency);
+    if (this.state.default_currency) {
+      ConversionActions.fetchRatesForBase(this.state.default_currency);
+    }
   },
   componentWillUnmount: function () {
     this.listener.remove();
