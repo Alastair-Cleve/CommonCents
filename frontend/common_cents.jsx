@@ -14,7 +14,7 @@ var Header = require('./components/Header');
 var Transfers = require('./components/Transfers');
 var Dashboard = require('./components/Dashboard');
 var Chart = require('./components/Chart');
-//Mixins - Temporarily Unused - Refactor
+//Mixins - Currently Unused
 var CurrentUserState = require('./mixins/current_user_state');
 //Modal for Login
 var Modal = require('react-modal');
@@ -49,7 +49,6 @@ var App = React.createClass({
         </div>
 
         <div className="center group">
-          <Chart/>
         </div>
       </div>
     );

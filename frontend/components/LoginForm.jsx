@@ -1,8 +1,6 @@
 var React = require("react");
-// var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var UserActions = require("../actions/user_actions");
 var UserStore = require('../stores/user_store');
-// var CurrentUserState = require("../mixins/current_user_state");
 var currency_constants = require('../constants/currency_constants');
 
 var currencies = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK",
@@ -11,7 +9,6 @@ var currencies = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK",
   "THB", "TRY", "USD", "ZAR"];
 
 var LoginForm = React.createClass({
-	// mixins: [CurrentUserState],
 
   DEMO_USERNAME: "guest",
 
@@ -92,30 +89,12 @@ var LoginForm = React.createClass({
         self.fillDemoPassword(_password);
       }, 200);
     } else {
-        // e.preventDefault();
         UserActions.login({
           username: "guest",
           password: "password"
         });
-      // var e = { preventDefault: function() {} };
-      // this.submitHandler(e);
     }
   },
-
-
-
-///////
-
-
-
-  // handleDemo: function(e){
-  //   e.preventDefault();
-  //   UserActions.login({
-  //     username: "guest",
-  //     password: "password"
-  //   });
-  // },
-
   handleUsername: function(e){
     this.setState({username: e.target.value});
   },

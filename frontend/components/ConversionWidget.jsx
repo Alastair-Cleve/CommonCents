@@ -1,8 +1,6 @@
 var React = require("react");
-// var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ConversionActions = require("../actions/conversion_actions");
 var ConversionStore = require('../stores/conversion_store');
-// var CurrentUserState = require("../mixins/current_user_state");
 var currency_constants = require('../constants/currency_constants');
 
 var ConversionWidget = React.createClass({
@@ -27,21 +25,9 @@ var ConversionWidget = React.createClass({
   },
 
 	componentDidMount: function () {
-    // if (window.transferVariables) {
-    //
-    //   this.setState({fromCurrency: window.transferVariables["fromCurrency"]}, function() {
-    //     this.listener = ConversionStore.addListener(this.updateRatesWidget);
-    //     ConversionActions.fetchRatesForBase(this.state.fromCurrency);
-    //     this.setState({toCurrency: window.transferVariables["toCurrency"]}, function() {
-    //       this.setState({toAmount: window.transferVariables["toAmount"]}, function () {
-    //       });
-    //     });
-    //   });
-    // } else {
       window.transferVariables = undefined;
       this.listener = ConversionStore.addListener(this.updateRatesWidget);
       ConversionActions.fetchRatesForBase(this.state.fromCurrency);
-    // }
   },
 
   componentWillUnmount: function () {
@@ -60,7 +46,6 @@ var ConversionWidget = React.createClass({
   },
 
   handleFromAmount: function (e) {
-    // debugger;
     this.setState({fromAmount: e.target.value}, function() {
       var exchangeRate = this.state.ratesObject["rates"][this.state.toCurrency];
       var toAmount = this.state.fromAmount * exchangeRate;
@@ -81,8 +66,6 @@ var ConversionWidget = React.createClass({
   },
 
   handleFromCurrency: function (e) {
-    // I had to use a setTimeout here to update the toAmount in the Transfers Store
-    // because I could not pass a callback to second setState in the updateRatesWidget.
     setTimeout(function() {
       ConversionActions.addToAmountToTransfersStore(this.state.toAmount);
     }.bind(this), 500);
@@ -101,16 +84,6 @@ var ConversionWidget = React.createClass({
       });
     });
   },
-
-  // handleFromClick: function (e) {
-  //   e.preventDefault();
-  //   this.setState({fromAmount: ""});
-  // },
-  //
-  // handleToClick: function (e) {
-  //   e.preventDefault();
-  //   this.setState({toAmount: ""});
-  // },
 
   render: function () {
       return(

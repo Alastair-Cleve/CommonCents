@@ -6,7 +6,6 @@ var UserActions = require('../actions/user_actions');
 var UserStore = require('../stores/user_store');
 var Sidebar = require('./Sidebar');
 
-
 var Dashboard = React.createClass({
   getInitialState: function () {
     return({
@@ -17,8 +16,6 @@ var Dashboard = React.createClass({
   },
 
 	componentDidMount: function () {
-    // this.userListener = UserStore.addListener(this.updateUser);
-    // UserActions.fetchCurrentUser();
     if (window.transferVariables) {
       hashHistory.push("/transfer");
     }
@@ -28,7 +25,6 @@ var Dashboard = React.createClass({
 
   componentWillUnmount: function () {
     this.transferListener.remove();
-    // this.userListener.remove();
   },
 
   updateTransfers: function () {
@@ -48,14 +44,9 @@ var Dashboard = React.createClass({
 
   handleLogOut: function () {
     UserActions.logout();
-    // setTimeout(hashHistory.push('/'), 500);
   },
 
   render: function () {
-    // window.default_currency = this.state.transfers['current_user']['default_currency'];
-    console.log(this.state.transfers['current_user']);
-    console.log(this.state.transfers['current_user']['default_currency']);
-
     if (this.state.transfers["transfers"].length > 0) {
       var transfers_table = this.state.transfers["transfers"].reverse().map(function(transfer) {
         return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);

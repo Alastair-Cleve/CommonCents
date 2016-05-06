@@ -74,23 +74,6 @@ var Sidebar = React.createClass({
   render: function() {
     var localRates = this.state.myRates;
     var pairs = Object.keys(localRates["rates"]);
-    console.log(pairs);
-
-    // var currencies = Object.keys(localRates["rates"]);
-    // var values = [];
-    // for (var i = 0; i < currencies.length; i++) {
-    //   values.push(localRates["rates"][currencies[i]]);
-    // }
-    //
-    // var pairs = [];
-    // for (var i = 0; i < currencies.length; i++) {
-    //   pairs.push(<div>values[i] CurrencyConstants["pairs"][currencies[i]]</div>);
-      // pairs.push("" + values[i] + " " + CurrencyConstants["pairs"][currencies[i]] + "\n");
-    // }
-
-    // pairs = pairs.map(function(currency) {
-    //   return (<div>localRates["rates"][currency] CurrencyConstants["pairs"][currency]</div>)
-    // });
 
     return (
       <Menu styles={styles}>

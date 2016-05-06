@@ -32,7 +32,6 @@ var TransfersActions = {
   },
 
   handleError: function(error) {
-    // debugger;
     AppDispatcher.dispatch({
       actionType: TransfersConstants.ERROR,
       errors: error.responseJSON.errors

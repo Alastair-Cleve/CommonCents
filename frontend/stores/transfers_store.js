@@ -7,21 +7,11 @@ var _errors = [];
 
 TransfersStore.all = function () {
   return _transfers
-  // return (Object.keys(_transfers).map(function(transfer_id) {
-  //   return (_transfers[transfer_id]);
-  // }));
 };
 
 TransfersStore.addTransfers = function(transfers) {
   _transfers = transfers
-  // transfers.forEach(function(transfer) {
-  //   _transfers[transfer.id] = transfer;
-  // })
 };
-
-// TransfersStore.addTransfer = function(transfer) {
-//   _transfers[transfer.id] = transfer;
-// };
 
 TransfersStore.__onDispatch = function (payload) {
   console.log(payload.actionType);
@@ -30,9 +20,6 @@ TransfersStore.__onDispatch = function (payload) {
     	TransfersStore.addTransfers(payload.transfers);
       TransfersStore.__emitChange();
       break;
-    // case "RECEIVE_TRANSFER":
-    //   TransfersStore.addTransfer(payload.transfer);
-    //   break;
     case "ERROR":
       TransfersStore.setErrors(payload.errors);
       TransfersStore.__emitChange();

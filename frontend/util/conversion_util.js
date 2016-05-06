@@ -1,5 +1,4 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
-// var ConversionActions = require('../actions/conversion_actions');
 
 var ConversionUtil = {
 	fetchRatesForBase: function(base, success){

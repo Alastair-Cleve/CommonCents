@@ -1,12 +1,6 @@
 
 class Api::TransfersController < ApplicationController
 
-#Rethink controller architecture: remember that you do not have an index action.
-  # def index
-  #   @transfers = current_user.transfers
-  #   render "api/transfers"
-  # end
-
   def create
     @transfer = Transfer.new(transfer_params)
     if @transfer.save
@@ -20,8 +14,6 @@ class Api::TransfersController < ApplicationController
 
   def show
     @current_user = current_user
-    # @transfers = current_user.transfers
-    # if @transfers
     if @current_user
       render "api/transfers/show"
     else

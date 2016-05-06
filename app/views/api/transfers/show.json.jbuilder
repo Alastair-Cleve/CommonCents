@@ -1,5 +1,3 @@
-# json.extract! @transfer, :transferor, :transferee, :amount, :currency
-
 json.set! :current_user do
   json.extract! @current_user, :username, :default_currency
 end
