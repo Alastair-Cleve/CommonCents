@@ -6,6 +6,10 @@ var TransfersStore = require('../stores/transfers_store');
 var ConversionStore = require('../stores/conversion_store');
 var CurrencyConstants = require('../constants/currency_constants');
 
+var numberWithCommas = function(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 var Sidebar = React.createClass({
 
   getInitialState: function () {
@@ -92,13 +96,15 @@ var Sidebar = React.createClass({
       <Menu styles={styles}>
         <h1>Today's Rates</h1><br/>
         <h3>1&nbsp;&nbsp;{CurrencyConstants["pairs"][this.props.default_currency]}&nbsp;&nbsp;{this.props.default_currency} buys:</h3><br/>
-        <div>
+        <table>
+          <tbody>
           {
-            pairs.map(function(currency) {
-              return (<div className="center">{localRates["rates"][currency].toFixed(2)}&nbsp;&nbsp;{CurrencyConstants["pairs"][currency]}&nbsp;&nbsp;{currency}</div>)
+            pairs.sort().map(function(currency) {
+              return (<tr className="sidebar-row"><td>{numberWithCommas(localRates["rates"][currency].toFixed(2))}</td><td>{CurrencyConstants["pairs"][currency]}&nbsp;&nbsp;{currency}</td></tr>)
             })
           }
-        </div>
+          </tbody>
+        </table>
      </Menu>
     );
   }
@@ -124,7 +130,7 @@ var styles = {
   },
   bmMenu: {
     background: '#373a47',
-    padding: '2.5em 1.5em 2.5em',
+    padding: '2.5em 1.5em 4.0em',
     fontSize: '1.15em'
   },
   bmMorphShape: {

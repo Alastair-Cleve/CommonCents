@@ -328,6 +328,14 @@ tr:nth-child(even) {
   background-color: #F8EEE7;
 }
 
+.sidebar-row:nth-child(even) {
+  background-color: #373A47;
+}
+
+.sidebar-row:nth-child(even):hover {
+  background-color: #94618E;
+}
+
 tr:hover {
   background-color: #94618E;
 }
