@@ -28,15 +28,16 @@ TransfersStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case "RECEIVE_TRANSFERS":
     	TransfersStore.addTransfers(payload.transfers);
+      TransfersStore.__emitChange();
       break;
     // case "RECEIVE_TRANSFER":
     //   TransfersStore.addTransfer(payload.transfer);
     //   break;
     case "ERROR":
       TransfersStore.setErrors(payload.errors);
+      TransfersStore.__emitChange();
       break;
   }
-  TransfersStore.__emitChange();
 };
 
 TransfersStore.setErrors = function(errors){

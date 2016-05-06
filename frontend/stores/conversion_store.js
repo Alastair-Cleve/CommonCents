@@ -33,18 +33,21 @@ ConversionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case "RECEIVE_RATES_OBJECT":
     	ConversionStore.setRatesObject(payload.ratesObject);
+      ConversionStore.__emitChange();
       break;
     case "RECEIVE_TO_AMOUNT":
       _toAmount = payload.amount;
+      ConversionStore.__emitChange();
       break;
     case "RECEIVE_TO_CURRENCY":
       _toCurrency = payload.currency;
+      ConversionStore.__emitChange();
       break;
     case "RECEIVE_HISTORICAL_RATES":
       _historicalObject = payload.ratesObject;
+      ConversionStore.__emitChange();
       break;
   }
-  ConversionStore.__emitChange();
 };
 
 module.exports = ConversionStore;

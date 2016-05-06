@@ -52,6 +52,10 @@ var Dashboard = React.createClass({
   },
 
   render: function () {
+    // window.default_currency = this.state.transfers['current_user']['default_currency'];
+    console.log(this.state.transfers['current_user']);
+    console.log(this.state.transfers['current_user']['default_currency']);
+
     if (this.state.transfers["transfers"].length > 0) {
       var transfers_table = this.state.transfers["transfers"].reverse().map(function(transfer) {
         return(<tr key={transfer.id}><td>{transfer.date}</td><td>{transfer.time + " GMT"}</td><td>{transfer.recipient}</td><td>{transfer.amount}</td><td>{transfer.currency}</td></tr>);
@@ -74,7 +78,8 @@ var Dashboard = React.createClass({
 
     return(
       <div>
-        <Sidebar />
+        <Sidebar default_currency={this.state.transfers['current_user']['default_currency']} />
+
         <header className="header">
           <nav className="header-nav center group">
 
