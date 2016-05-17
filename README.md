@@ -1,6 +1,6 @@
 #Common&#xFFE0;ents
 
-**[Live Site](https://commoncentsapp.herokuapp.com)**
+**[Live Site](http://www.commoncents.trade)**
 
 ##Concept
 
